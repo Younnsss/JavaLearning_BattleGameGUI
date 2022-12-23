@@ -1,0 +1,19 @@
+.combattant{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 10,0,0,0 );
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 3px;
+
+}
+
+.iconesCol{
+    -fx-padding: 5px;
+}
+
+.iconesRow{
+    -fx-padding: 1px;
+}

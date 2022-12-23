@@ -5,11 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import models.Combattant;
@@ -25,7 +24,7 @@ public class Deploy implements Initializable {
     private List<Combattant> combattantsP2 = HelloApplication.game.getPlayers()[1].getCombattant();
 
     @FXML
-    private HBox hbox;
+    private FlowPane pane;
     @FXML
     private HBox hboxD;
     @FXML
@@ -40,9 +39,9 @@ public class Deploy implements Initializable {
 
     public void setup(List<Combattant> combattants) {
         hboxD.getChildren().clear();
-        hbox.getChildren().clear();
+        pane.getChildren().clear();
         for (int i = 0; i < combattants.size(); i++) {
-            hbox.getChildren().add(buildDraggable(Arrays.toString(combattants.get(i).getStats()), i));
+            pane.getChildren().add(buildDraggable(combattants.get(i), i));
         }
         for (int i = 0; i < 6; i++) {
             hboxD.getChildren().add(buildDrop());
@@ -56,8 +55,8 @@ public class Deploy implements Initializable {
             VBox vbox = (VBox) pane.getContent();
             List<Combattant> combZone = new ArrayList<Combattant>();
             for (int j = 0; j < vbox.getChildren().size(); j++) {
-                Text text = (Text) vbox.getChildren().get(j);
-                combZone.add(combFrom.get(Integer.parseInt(text.getId())));
+                HBox hbx = (HBox) vbox.getChildren().get(j);
+                combZone.add(combFrom.get(Integer.parseInt(hbx.getId())));
             }
             if(combattantsP2.size() == 0) {
                 HelloApplication.game.getZones()[i].setCombattantP1(combZone);
@@ -69,8 +68,8 @@ public class Deploy implements Initializable {
         VBox vbox = (VBox) pane.getContent();
         List<Combattant> combZone = new ArrayList<Combattant>();
         for (int j = 0; j < vbox.getChildren().size(); j++) {
-            Text text = (Text) vbox.getChildren().get(j);
-            combZone.add(combFrom.get(Integer.parseInt(text.getId())));
+            HBox hbx = (HBox) vbox.getChildren().get(j);
+            combZone.add(combFrom.get(Integer.parseInt(hbx.getId())));
         }
         if(combattantsP2.size() == 0) {
             HelloApplication.game.getPlayers()[0].setReserviste(combZone);
@@ -105,7 +104,7 @@ public class Deploy implements Initializable {
                 return false;
             }
         }
-        if (hbox.getChildren().size() != 0) {
+        if (this.pane.getChildren().size() != 0) {
             error.setText("Vous devez placer tous vos combattants");
             return false;
         } else if (vbox.getChildren().size() != 5) {
@@ -167,7 +166,7 @@ public class Deploy implements Initializable {
                 boolean success = false;
                 if (db.hasString()) {
                     VBox vbx = (VBox) target.getContent();
-                    vbx.getChildren().add((Text) event.getGestureSource());
+                    vbx.getChildren().add((HBox)event.getGestureSource());
                     success = true;
                 }
                 /* let the source know whether the string was successfully
@@ -180,8 +179,38 @@ public class Deploy implements Initializable {
         return target;
     }
 
-    public Text buildDraggable(String text, int id) {
-        final Text source = new Text(50, 100, text);
+    public HBox buildDraggable(Combattant combattant, int id) {
+        HBox source = new HBox();
+        source.getStyleClass().add("combattant");
+
+        VBox vbox1 = new VBox();
+        VBox vbox2 = new VBox();
+        vbox1.getStyleClass().add("iconesCol");
+        vbox2.getStyleClass().add("iconesCol");
+        String strategie = "";
+        if (combattant.getStrategie().equals("Offensive")) {
+            strategie = "attaque";
+        } else if (combattant.getStrategie().equals("Defensive")) {
+            strategie = "defense";
+        } else if (combattant.getStrategie().equals("Aleatoire")) {
+            strategie = "random";
+        }
+        Image img = new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
+        ImageView imgView = new ImageView(img);
+        imgView.setFitHeight(70);
+        imgView.setFitWidth(45);
+
+        source.getChildren().addAll(imgView, vbox1, vbox2);
+        String[] icones = {"dex","for", "res","cons","ini", "cred"};
+        int[] values = combattant.getStats();
+        for (int i = 0; i < 6; i++) {
+            HBox hbox = new HBox();
+            hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
+            hbox.getChildren().add(new Label(" "+String.valueOf(values[i])));
+            hbox.getStyleClass().add("iconesRow");
+            VBox vbox =(VBox) source.getChildren().get((i/3)+1);
+            vbox.getChildren().add(hbox);
+        }
         source.setId(String.valueOf(id));
         source.setOnDragDetected(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
@@ -193,7 +222,7 @@ public class Deploy implements Initializable {
 
                 /* put a string on dragboard */
                 ClipboardContent content = new ClipboardContent();
-                content.putString(source.getText());
+                content.putString(Arrays.toString(combattant.getStats()));
                 db.setContent(content);
 
                 event.consume();
@@ -206,7 +235,7 @@ public class Deploy implements Initializable {
                 System.out.println("onDragDone");
                 /* if the data was successfully moved, clear it */
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    hbox.getChildren().remove(source);
+                    pane.getChildren().remove(source);
                 }
                 event.consume();
             }

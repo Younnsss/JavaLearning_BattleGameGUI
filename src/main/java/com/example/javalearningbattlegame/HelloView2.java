@@ -1,18 +1,21 @@
 package com.example.javalearningbattlegame;
 
+import javafx.css.converter.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import models.Combattant;
-import models.Player;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.util.converter.DoubleStringConverter;
+import models.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloView2 implements Initializable {
@@ -21,181 +24,170 @@ public class HelloView2 implements Initializable {
     @FXML
     private Button valid;
     @FXML
-    private HBox hboxP2;
+    private VBox customBox;
     @FXML
-    private VBox customBoxP1;
+    private Label cred;
     @FXML
-    private VBox customBoxP2;
-    @FXML
-    private Label credP1;
-    @FXML
-    private Label credP2;
-    private List<Combattant> combattantsP1 = HelloApplication.game.getPlayers()[0].getCombattant();
-    private List<Combattant> combattantsP2 = HelloApplication.game.getPlayers()[1].getCombattant();
-    private Player player1 = HelloApplication.game.getPlayers()[0];
-    private Player player2 = HelloApplication.game.getPlayers()[1];
+    private Label error;
+    private Slider forSlider;
+    private Slider dexSlider;
+    private Slider iniSlider;
+    private Slider resSlider;
+    private Slider consSlider;
+    private Slider straSlider;
+    private boolean done = false;
 
-    private Slider forSliderP1;
-    private Slider dexSliderP1;
-    private Slider iniSliderP1;
-    private Slider resSliderP1;
-    private Slider consSliderP1;
-
-    private Slider forSliderP2;
-    private Slider dexSliderP2;
-    private Slider iniSliderP2;
-    private Slider resSliderP2;
-    private Slider consSliderP2;
 
     public void validate() throws IOException {
-        HelloApplication.setScene("deploy.fxml");
+        if (done) {
+            if (HelloApplication.game.getPlayers()[1].getCreditECTS() != 0) {
+                error.setText("Vous n'avez pas utilisé tous vos crédits");
+            } else {
+                HelloApplication.setScene("hello-view2.fxml");
+            }
+            HelloApplication.setScene("deploy.fxml");
+        } else {
+            if (HelloApplication.game.getPlayers()[0].getCreditECTS() != 0) {
+                error.setText("Vous n'avez pas utilisé tous vos crédits");
+            } else {
+                done = true;
+                setup();
+            }
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        credP1.setText("Crédits : " + player1.getCreditECTS());
-        credP2.setText("Crédits : " + player2.getCreditECTS());
         setup();
     }
 
     public void setup() {
-        for (int i = 0; i < combattantsP1.size(); i++) {
+        Player player = done ? HelloApplication.game.getPlayers()[1] : HelloApplication.game.getPlayers()[0];
+        cred.setText("Crédits : " + player.getCreditECTS());
+        for (int i = 0; i < player.getCombattant().size(); i++) {
             VBox vbx = (VBox) hboxP1.getChildren().get(i / 3);
+            vbx.setPrefWidth(200);
             if ((i / 3) != ((i - 1) / 3) || i == 0) {
                 vbx.getChildren().clear();
             }
-            vbx.getChildren().add(buildCombP1(combattantsP1.get(i)));
-        }
-        for (int i = 0; i < combattantsP2.size(); i++) {
-            VBox vbx = (VBox) hboxP2.getChildren().get(i / 3);
-            if ((i / 3) != ((i - 1) / 3) || i == 0) {
-                vbx.getChildren().clear();
-            }
-            vbx.getChildren().add(buildCombP2(combattantsP2.get(i)));
+            vbx.getChildren().add(buildComb(player.getCombattant().get(i), player));
         }
     }
 
 
-    public void buildCustomBoxP1(Combattant combattant, Button btn) {
+    public void buildCustomBox(Combattant combattant, HBox box, Player player) {
 
-        forSliderP1 = buildSliderP1(combattant.getForce(), combattant.getRole().getForce());
-        forSliderP1.valueProperty().addListener((observable, oldValue, newValue) -> {
-                combattant.setForce(combattant.getForce() + newValue.intValue() - oldValue.intValue());
-                updateP1(btn, combattant, oldValue.intValue() - newValue.intValue());
-        });
-
-        dexSliderP1 = buildSliderP1(combattant.getDexterite(), combattant.getRole().getDexterite());
-        dexSliderP1.valueProperty().addListener((observable, oldValue, newValue) -> {
-                combattant.setDexterite(combattant.getDexterite() + newValue.intValue() - oldValue.intValue());
-                updateP1(btn, combattant, oldValue.intValue() - newValue.intValue());
-        });
-
-        iniSliderP1 = buildSliderP1(combattant.getInitiative(), combattant.getRole().getInitiative());
-        iniSliderP1.valueProperty().addListener((observable, oldValue, newValue) -> {
-                combattant.setInitiative(combattant.getInitiative() + newValue.intValue() - oldValue.intValue());
-                updateP1(btn, combattant, oldValue.intValue() - newValue.intValue());
-        });
-
-        consSliderP1 = buildSliderP1(combattant.getConstitution(), combattant.getRole().getConstitution());
-        consSliderP1.valueProperty().addListener((observable, oldValue, newValue) -> {
-                combattant.setConstitution(combattant.getConstitution() + newValue.intValue() - oldValue.intValue());
-                updateP1(btn, combattant, oldValue.intValue() - newValue.intValue());
-        });
-
-        resSliderP1 = buildSliderP1(combattant.getResistance(), combattant.getRole().getResistance());
-        resSliderP1.valueProperty().addListener((observable, oldValue, newValue) -> {
-                combattant.setResistance(combattant.getResistance() + newValue.intValue() - oldValue.intValue());
-                updateP1(btn, combattant, oldValue.intValue() - newValue.intValue());
-        });
-        Button btn2 = new Button("Random");
-        btn2.setOnAction((ActionEvent event) -> {
-            HelloApplication.game.getPlayers()[0].setCreditECTS(400);
-            HelloApplication.game.initAutoComb(0);
-            this.combattantsP1 = HelloApplication.game.getPlayers()[0].getCombattant();
-            setup();
-            credP1.setText("Crédits : " + player1.getCreditECTS());
-            customBoxP1.getChildren().clear();
-        });
-
-        customBoxP1.getChildren().clear();
-        customBoxP1.getChildren().addAll(forSliderP1, dexSliderP1, iniSliderP1, consSliderP1, resSliderP1, btn2);
-
-
-    }
-
-    public void buildCustomBoxP2(Combattant combattant, Button btn) {
-
-        forSliderP2 = buildSliderP2(combattant.getForce(), combattant.getRole().getForce());
-        forSliderP2.valueProperty().addListener((observable, oldValue, newValue) -> {
+        forSlider = buildSlider(combattant.getForce(), combattant.getRole().getForce(), player.getCreditECTS());
+        forSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setForce(combattant.getForce() + newValue.intValue() - oldValue.intValue());
-            updateP2(btn, combattant, oldValue.intValue() - newValue.intValue());
+            update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
 
-        dexSliderP2 = buildSliderP2(combattant.getDexterite(), combattant.getRole().getDexterite());
-        dexSliderP2.valueProperty().addListener((observable, oldValue, newValue) -> {
+        dexSlider = buildSlider(combattant.getDexterite(), combattant.getRole().getDexterite(), player.getCreditECTS());
+        dexSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setDexterite(combattant.getDexterite() + newValue.intValue() - oldValue.intValue());
-            updateP2(btn, combattant, oldValue.intValue() - newValue.intValue());
+            update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
 
-        iniSliderP2 = buildSliderP2(combattant.getInitiative(), combattant.getRole().getInitiative());
-        iniSliderP2.valueProperty().addListener((observable, oldValue, newValue) -> {
+        iniSlider = buildSlider(combattant.getInitiative(), combattant.getRole().getInitiative(), player.getCreditECTS());
+        iniSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setInitiative(combattant.getInitiative() + newValue.intValue() - oldValue.intValue());
-            updateP2(btn, combattant, oldValue.intValue() - newValue.intValue());
+            update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
 
-        consSliderP2 = buildSliderP2(combattant.getConstitution(), combattant.getRole().getConstitution());
-        consSliderP2.valueProperty().addListener((observable, oldValue, newValue) -> {
+        consSlider = buildSlider(combattant.getConstitution(), combattant.getRole().getConstitution(), player.getCreditECTS());
+        consSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setConstitution(combattant.getConstitution() + newValue.intValue() - oldValue.intValue());
-            updateP2(btn, combattant, oldValue.intValue() - newValue.intValue());
+            update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
 
-        resSliderP2 = buildSliderP2(combattant.getResistance(), combattant.getRole().getResistance());
-        resSliderP2.valueProperty().addListener((observable, oldValue, newValue) -> {
+        resSlider = buildSlider(combattant.getResistance(), combattant.getRole().getResistance(), player.getCreditECTS());
+        resSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setResistance(combattant.getResistance() + newValue.intValue() - oldValue.intValue());
-            updateP2(btn, combattant, oldValue.intValue() - newValue.intValue());
+            update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
+        });
+        straSlider = stratSlider(combattant.getStrategie());
+        straSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.intValue() == 0) {
+                combattant.setStrategie("a");
+            } else if (newValue.intValue() == 1) {
+                combattant.setStrategie("r");
+            } else {
+                combattant.setStrategie("s");
+            }
+            update(box, combattant, 0, player);
         });
         Button btn2 = new Button("Random");
         btn2.setOnAction((ActionEvent event) -> {
-            HelloApplication.game.getPlayers()[1].setCreditECTS(400);
-            HelloApplication.game.initAutoComb(1);
-            this.combattantsP2 = HelloApplication.game.getPlayers()[1].getCombattant();
+            if (done) {
+                HelloApplication.game.getPlayers()[1].setCreditECTS(400);
+                HelloApplication.game.initAutoComb(1);
+            } else {
+                HelloApplication.game.getPlayers()[0].setCreditECTS(400);
+                HelloApplication.game.initAutoComb(0);
+            }
             setup();
-            credP2.setText("Crédits : " + player2.getCreditECTS());
-            customBoxP2.getChildren().clear();
+            customBox.getChildren().clear();
         });
 
-        customBoxP2.getChildren().clear();
-        customBoxP2.getChildren().addAll(forSliderP2, dexSliderP2, iniSliderP2, consSliderP2, resSliderP2, btn2);
+        customBox.getChildren().clear();
+        customBox.getChildren().addAll(forSlider, dexSlider, iniSlider, consSlider, resSlider, straSlider, btn2);
 
 
     }
 
-    public void updateP1(Button btn, Combattant combattant, int value) {
-        btn.setText(Arrays.toString(combattant.getStats()));
-        player1.setCreditECTS(player1.getCreditECTS() + value);
-        credP1.setText("Crédits restants : " + player1.getCreditECTS());
-        resSliderP1.setMax(Math.min(player1.getCreditECTS() + combattant.getResistance(), 10));
-        consSliderP1.setMax(Math.min(player1.getCreditECTS() + combattant.getConstitution(), 10));
-        iniSliderP1.setMax(Math.min(player1.getCreditECTS() + combattant.getInitiative(), 10));
-        dexSliderP1.setMax(Math.min(player1.getCreditECTS() + combattant.getDexterite(), 10));
-        forSliderP1.setMax(Math.min(player1.getCreditECTS() + combattant.getForce(), 10));
-    }
-    public void updateP2(Button btn, Combattant combattant, int value) {
-        btn.setText(Arrays.toString(combattant.getStats()));
-        player2.setCreditECTS(player2.getCreditECTS() + value);
-        credP2.setText("Crédits restants : " + player2.getCreditECTS());
-        resSliderP2.setMax(Math.min(player2.getCreditECTS() + combattant.getResistance(), 10));
-        consSliderP2.setMax(Math.min(player2.getCreditECTS() + combattant.getConstitution(), 10));
-        iniSliderP2.setMax(Math.min(player2.getCreditECTS() + combattant.getInitiative(), 10));
-        dexSliderP2.setMax(Math.min(player2.getCreditECTS() + combattant.getDexterite(), 10));
-        forSliderP2.setMax(Math.min(player2.getCreditECTS() + combattant.getForce(), 10));
+
+    public void update(HBox box, Combattant combattant, int value, Player player) {
+        box.getChildren().clear();
+        box.getChildren().add(buildComb(combattant, player));
+        player.setCreditECTS(player.getCreditECTS() + value);
+        cred.setText("Crédits restants : " + player.getCreditECTS());
+        resSlider.setMax(Math.min(player.getCreditECTS() + combattant.getResistance(), 10));
+        consSlider.setMax(Math.min(player.getCreditECTS() + combattant.getConstitution(), 10));
+        iniSlider.setMax(Math.min(player.getCreditECTS() + combattant.getInitiative(), 10));
+        dexSlider.setMax(Math.min(player.getCreditECTS() + combattant.getDexterite(), 10));
+        forSlider.setMax(Math.min(player.getCreditECTS() + combattant.getForce(), 10));
     }
 
-    public Slider buildSliderP1(int value, int min) {
+    public Slider stratSlider(String value) {
+        Slider slider = new Slider(0, 2, 0);
+        int val = value.equals("Offensive") ? 0 : value.equals("Aleatoire") ? 1 : 2;
+        slider.setMin(0);
+        slider.setMax(2);
+        slider.setValue(val);
+        slider.setMinorTickCount(0);
+        slider.setMajorTickUnit(1);
+        slider.setSnapToTicks(true);
+        slider.setShowTickMarks(true);
+        slider.setShowTickLabels(true);
+        slider.setLabelFormatter(new DoubleStringConverter() {
+            @Override
+            public String toString(Double n) {
+                if (n < 0.5) return "Offensive";
+                if (n < 1.5) return "Aleatoire";
+                return "Defensive";
+            }
+
+            @Override
+            public Double fromString(String s) {
+                switch (s) {
+                    case "Offensive":
+                        return 0d;
+                    case "Aleatoire":
+                        return 1d;
+                    default:
+                        return 2d;
+                }
+            }
+        });
+        return slider;
+    }
+
+    public Slider buildSlider(int value, int min, int cred) {
         Slider slider = new Slider(0, 10, 0);
         slider.setValue(value);
         slider.setMin(min);
-        slider.setMax(Math.min(player1.getCreditECTS() + value, 10));
+        slider.setMax(Math.min(cred + value, 10));
         slider.setShowTickLabels(true);
         slider.setShowTickMarks(true);
         slider.setMajorTickUnit(1);
@@ -206,37 +198,45 @@ public class HelloView2 implements Initializable {
         return slider;
     }
 
-    public Slider buildSliderP2(int value, int min) {
-        Slider slider = new Slider(0, 10, 0);
-        slider.setValue(value);
-        slider.setMin(min);
-        slider.setMax(Math.min(player2.getCreditECTS() + value, 10));
-        slider.setShowTickLabels(true);
-        slider.setShowTickMarks(true);
-        slider.setMajorTickUnit(1);
-        slider.setMinorTickCount(0);
-        slider.setBlockIncrement(1);
-        slider.setSnapToTicks(true);
-        slider.setPrefWidth(200);
-        return slider;
-    }
 
+    public HBox buildComb(Combattant combattant, Player player) {
+        HBox box = new HBox();
+        box.setMinWidth(165);
+        box.getStyleClass().add("combattant");
 
-    public Button buildCombP1(Combattant combattant) {
-        Button btn = new Button();
-        btn.setText(Arrays.toString(combattant.getStats()));
-        btn.setOnAction(event -> {
-            buildCustomBoxP1(combattant, btn);
+        VBox vbox1 = new VBox();
+        VBox vbox2 = new VBox();
+        vbox1.getStyleClass().add("iconesCol");
+        vbox2.getStyleClass().add("iconesCol");
+        String strategie = "";
+        if (combattant.getStrategie().equals("Offensive")) {
+            strategie = "attaque";
+        } else if (combattant.getStrategie().equals("Defensive")) {
+            strategie = "defense";
+        } else if (combattant.getStrategie().equals("Aleatoire")) {
+            strategie = "random";
+        }
+        Image img = new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
+        ImageView imgView = new ImageView(img);
+        imgView.setFitHeight(70);
+        imgView.setFitWidth(45);
+
+        box.getChildren().addAll(imgView, vbox1, vbox2);
+        String[] icones = {"dex","for", "res","cons","ini", "cred"};
+        int[] values = combattant.getStats();
+        for (int i = 0; i < 6; i++) {
+            HBox hbox = new HBox();
+            hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
+            hbox.getChildren().add(new Label(" "+String.valueOf(values[i])));
+            hbox.getStyleClass().add("iconesRow");
+            VBox vbox =(VBox) box.getChildren().get((i/3)+1);
+            vbox.getChildren().add(hbox);
+        }
+        HBox finalBox = new HBox(box);
+        box.setOnMouseClicked((MouseEvent event) -> {
+            buildCustomBox(combattant, finalBox, player);
         });
-        return btn;
-    }
-    public Button buildCombP2(Combattant combattant) {
-        Button btn = new Button();
-        btn.setText(Arrays.toString(combattant.getStats()));
-        btn.setOnAction(event -> {
-            buildCustomBoxP2(combattant, btn);
-        });
-        return btn;
+        return finalBox;
     }
 
 

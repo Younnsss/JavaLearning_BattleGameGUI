@@ -16,6 +16,8 @@ public class Combattant implements Comparable<Combattant>{
 
     private int initiative;
 
+	private String mode;
+
     public Strategie strategie;
 
     private Role role;
@@ -31,36 +33,39 @@ public class Combattant implements Comparable<Combattant>{
     	switch (stra) {
 		case "a":
 			this.strategie = new Offensive();
+			this.mode = "Offensive";
 			break;
 		case "s":
 			this.strategie = new Defensive();
+			this.mode = "Defensive";
 			break;
 		default:
 			this.strategie = new Aleatoire();
+			this.mode = "Aleatoire";
 			break;
     	}
     	
     }
 
 
-    Strategie getStrategie() {
+    public String getStrategie() {
         // Automatically generated method. Please delete this comment before entering specific code.
-        return this.strategie;
+        return this.mode;
     }
 
-    void setStrategie(String stra) {
+    public void setStrategie(String stra) {
 		switch (stra) {
 			case "a":
-				System.out.println("oFFENSIVE");
 				this.strategie = new Offensive();
+				this.mode = "Offensive";
 				break;
 			case "s":
-				System.out.println("Defensive");
 				this.strategie = new Defensive();
+				this.mode = "Defensive";
 				break;
 			default:
-				System.out.println("Aleatoire");
 				this.strategie = new Aleatoire();
+				this.mode = "Aleatoire";
 				break;
 		}
     }
@@ -85,7 +90,7 @@ public class Combattant implements Comparable<Combattant>{
         this.dexterite = value;
     }
 
-    int getCreditECTS() {
+    public int getCreditECTS() {
         // Automatically generated method. Please delete this comment before entering specific code.
         return this.creditECTS;
     }

@@ -27,6 +27,7 @@ public class HelloApplication extends Application {
     public static void setScene(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+        scene.getStylesheets().add(HelloApplication.class.getResource("style.css").toExternalForm());
         stage.setScene(scene);
     }
 
