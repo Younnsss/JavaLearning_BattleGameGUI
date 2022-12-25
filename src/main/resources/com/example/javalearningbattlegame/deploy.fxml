@@ -2,15 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Deploy">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Deploy">
    <children>
-      <HBox fx:id="hboxD" layoutX="59.0" layoutY="435.0" prefHeight="100.0" prefWidth="750.0" />
-      <Button layoutX="819.0" layoutY="336.0" mnemonicParsing="false" onAction="#next" text="Button" />
+      <HBox fx:id="hboxD" layoutX="14.0" layoutY="175.0" prefHeight="100.0" prefWidth="750.0" />
+      <Button layoutX="831.0" layoutY="77.0" mnemonicParsing="false" onAction="#next" text="Button" />
       <Label fx:id="error" layoutX="829.0" layoutY="293.0" text="Label" />
-      <FlowPane fx:id="pane" layoutX="34.0" layoutY="26.0" prefHeight="200.0" prefWidth="936.0" />
+      <ScrollPane layoutX="41.0" layoutY="513.0" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="1126.0" style="-fx-border-color: #C9ADA7;">
+         <content>
+            <FlowPane fx:id="pane" maxHeight="125.0" maxWidth="1.7976931348623157E308" prefHeight="126.0" prefWidth="1122.0" style="-fx-background-color: #C9ADA7; -fx-max-height: 130; -fx-orientation: VERTICAL; -fx-padding: 10; -fx-hgap: 10;" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

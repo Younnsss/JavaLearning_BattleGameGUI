@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,13 +22,21 @@ import java.util.ResourceBundle;
 
 public class HelloView2 implements Initializable {
     @FXML
-    private HBox hboxP1;
+    private FlowPane basique;
+
+    @FXML
+    private FlowPane maitreGobi;
+    @FXML
+    private FlowPane  elite;
     @FXML
     private Button valid;
     @FXML
     private VBox customBox;
     @FXML
     private Label cred;
+
+    @FXML
+    private Label title;
     @FXML
     private Label error;
     private Slider forSlider;
@@ -63,15 +73,30 @@ public class HelloView2 implements Initializable {
 
     public void setup() {
         Player player = done ? HelloApplication.game.getPlayers()[1] : HelloApplication.game.getPlayers()[0];
-        cred.setText("Crédits : " + player.getCreditECTS());
-        for (int i = 0; i < player.getCombattant().size(); i++) {
-            VBox vbx = (VBox) hboxP1.getChildren().get(i / 3);
-            vbx.setPrefWidth(200);
-            if ((i / 3) != ((i - 1) / 3) || i == 0) {
-                vbx.getChildren().clear();
-            }
-            vbx.getChildren().add(buildComb(player.getCombattant().get(i), player));
+        title.setText(player.getPseudo()+"'s Army");
+        cred.setText("Crédits Restants: " + player.getCreditECTS());
+        maitreGobi.getChildren().clear();
+        maitreGobi.getChildren().add(buildComb(player.getCombattant().get(0), player));
+        elite.getChildren().clear();
+        for (int i = 1; i < 5; i++) {
+            elite.getChildren().add(buildComb(player.getCombattant().get(i), player));
         }
+        basique.getChildren().clear();
+        for (int j = 5; j < 20; j++) {
+            basique.getChildren().add(buildComb(player.getCombattant().get(j), player));
+        }
+    }
+
+    public void randomize() {
+        if (done) {
+            HelloApplication.game.getPlayers()[1].setCreditECTS(400);
+            HelloApplication.game.initAutoComb(1);
+        } else {
+            HelloApplication.game.getPlayers()[0].setCreditECTS(400);
+            HelloApplication.game.initAutoComb(0);
+        }
+        setup();
+        customBox.getChildren().clear();
     }
 
 
@@ -117,21 +142,9 @@ public class HelloView2 implements Initializable {
             }
             update(box, combattant, 0, player);
         });
-        Button btn2 = new Button("Random");
-        btn2.setOnAction((ActionEvent event) -> {
-            if (done) {
-                HelloApplication.game.getPlayers()[1].setCreditECTS(400);
-                HelloApplication.game.initAutoComb(1);
-            } else {
-                HelloApplication.game.getPlayers()[0].setCreditECTS(400);
-                HelloApplication.game.initAutoComb(0);
-            }
-            setup();
-            customBox.getChildren().clear();
-        });
 
         customBox.getChildren().clear();
-        customBox.getChildren().addAll(forSlider, dexSlider, iniSlider, consSlider, resSlider, straSlider, btn2);
+        customBox.getChildren().addAll(forSlider, dexSlider, iniSlider, consSlider, resSlider, straSlider);
 
 
     }
@@ -142,6 +155,7 @@ public class HelloView2 implements Initializable {
         box.getChildren().add(buildComb(combattant, player));
         player.setCreditECTS(player.getCreditECTS() + value);
         cred.setText("Crédits restants : " + player.getCreditECTS());
+        error.setText("");
         resSlider.setMax(Math.min(player.getCreditECTS() + combattant.getResistance(), 10));
         consSlider.setMax(Math.min(player.getCreditECTS() + combattant.getConstitution(), 10));
         iniSlider.setMax(Math.min(player.getCreditECTS() + combattant.getInitiative(), 10));
@@ -160,6 +174,7 @@ public class HelloView2 implements Initializable {
         slider.setSnapToTicks(true);
         slider.setShowTickMarks(true);
         slider.setShowTickLabels(true);
+        slider.setMaxWidth(150);
         slider.setLabelFormatter(new DoubleStringConverter() {
             @Override
             public String toString(Double n) {
@@ -222,14 +237,14 @@ public class HelloView2 implements Initializable {
         imgView.setFitWidth(45);
 
         box.getChildren().addAll(imgView, vbox1, vbox2);
-        String[] icones = {"dex","for", "res","cons","ini", "cred"};
+        String[] icones = {"dex", "for", "res", "cons", "ini", "cred"};
         int[] values = combattant.getStats();
         for (int i = 0; i < 6; i++) {
             HBox hbox = new HBox();
             hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
-            hbox.getChildren().add(new Label(" "+String.valueOf(values[i])));
+            hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
             hbox.getStyleClass().add("iconesRow");
-            VBox vbox =(VBox) box.getChildren().get((i/3)+1);
+            VBox vbox = (VBox) box.getChildren().get((i / 3) + 1);
             vbox.getChildren().add(hbox);
         }
         HBox finalBox = new HBox(box);

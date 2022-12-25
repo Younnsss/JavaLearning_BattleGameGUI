@@ -3,28 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.HelloView2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.HelloView2">
    <children>
-      <VBox fx:id="customBox" layoutX="82.0" layoutY="29.0" prefHeight="272.0" prefWidth="434.0" />
-      <HBox fx:id="hboxP1" layoutY="365.0" prefHeight="241.0" prefWidth="1002.0" style="-fx-background-color: grey;">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="196.0" prefWidth="110.0" />
-         </children>
-      </HBox>
-      <Button fx:id="valid" layoutX="761.0" layoutY="89.0" mnemonicParsing="false" onAction="#validate" text="Button" />
-      <Label fx:id="cred" layoutX="278.0" layoutY="300.0" prefHeight="31.0" prefWidth="83.0" text="400" />
-      <Label fx:id="error" layoutX="758.0" layoutY="157.0" prefHeight="23.0" prefWidth="90.0" />
+      <VBox fx:id="customBox" layoutX="780.0" layoutY="20.0" prefHeight="241.0" prefWidth="360.0" style="-fx-background-color: #e3d5ca; -fx-background-radius: 10; -fx-padding: 10; -fx-alignment: center;" />
+      <Button fx:id="valid" layoutX="1012.0" layoutY="315.0" mnemonicParsing="false" onAction="#validate" style="-fx-background-color: #C9ADA7; -fx-font-weight: bold; -fx-background-radius: 10;" text="Valider">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <Label fx:id="cred" layoutX="551.0" layoutY="30.0" prefHeight="31.0" prefWidth="180.0" style="-fx-font-weight: bold;" text="Crédits Restants : 400" textFill="#22223b">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label fx:id="error" layoutX="920.0" layoutY="361.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <FlowPane fx:id="basique" layoutX="46.0" layoutY="147.0" style="-fx-background-color: #4A4E69; -fx-padding: 10; -fx-background-radius: 10; -fx-hgap: 10; -fx-vgap: 10; -fx-pref-width: 550;" />
+      <FlowPane fx:id="elite" layoutX="660.0" layoutY="435.0" style="-fx-background-color: #9A8C98; -fx-padding: 10; -fx-background-radius: 10; -fx-hgap: 10; -fx-vgap: 10; -fx-orientation: VERTICAL; -fx-pref-height: 225;" />
+      <FlowPane fx:id="maitreGobi" layoutX="668.0" layoutY="303.0" prefHeight="110.0" prefWidth="190.0" style="-fx-background-color: #C9ADA7; -fx-padding: 10; -fx-background-radius: 10; -fx-orientation: VERTICAL;" />
+      <Label fx:id="title" layoutX="51.0" layoutY="40.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" textFill="#22223b">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <Button layoutX="589.0" layoutY="64.0" mnemonicParsing="false" onAction="#randomize" style="-fx-font-weight: bold; -fx-background-color: #9A8C98;" text="Saisie Aléatoire" />
    </children>
 </AnchorPane>

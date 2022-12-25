@@ -27,7 +27,7 @@ public class Result implements Initializable {
                 hbox.getChildren().add(new Text(Arrays.toString(combattant.getStats())));
             }
             vbox.getChildren().add(hbox);
-            vbox.getChildren().add(new Text("PLayer 2"));
+            vbox.getChildren().add(new Text("Player 2"));
             hbox = new HBox();
             for(Combattant combattant : zone.getCombattantP2()) {
                 hbox.getChildren().add(new Text(Arrays.toString(combattant.getStats())));
