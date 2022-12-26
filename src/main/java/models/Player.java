@@ -7,8 +7,19 @@ public class Player {
     private String pseudo,filiere;
     private int creditECTS;
     private boolean winner;
+    private int score;
     private List<Combattant> combattant = new ArrayList<Combattant> ();
     public List<Combattant> reserviste = new ArrayList<Combattant> ();
+
+    public int getScore() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.score;
+    }
+
+    public void updateScore() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.score++;
+    }
     
     Player(String pseudo, String filiere){
     	this.pseudo = pseudo;

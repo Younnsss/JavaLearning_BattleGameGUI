@@ -33,7 +33,7 @@ public class HelloApplication extends Application {
 
     public static void initGame(String pseudoP1,String filiereP1, String pseudoP2, String filiereP2) {
         game.initZones(new String[] {"Bibliothèque", "Bureau des Etudiants",
-                "Quartier administratif", "Halle industrielle", "Halle sportive"});
+                    "Quartier administratif", "Halle industrielle", "Halle sportive"});
         game.initPlayers(pseudoP1, filiereP1, pseudoP2, filiereP2);
         game.initCombs();
     }

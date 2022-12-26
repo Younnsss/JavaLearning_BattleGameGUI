@@ -1,5 +1,7 @@
 package models;
 
+import com.example.javalearningbattlegame.HelloApplication;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +17,7 @@ public class Zone {
 
     Zone(String n) {
 		this.name = n;
-		this.isFinish = null;
+		this.isFinish = false;
 	}
 	public Player getPWinner() { return this.Pwinner; }
 	public void setWinner(Player player) { this.Pwinner=player; }
@@ -38,17 +40,17 @@ public class Zone {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.combattantP2 = value;
     }
-    
-    
-    public void combat() {
-    	Collections.sort(this.combattantP1);
-    	Collections.sort(this.combattantP2);
-    	Combattant.affComb(this.combattantP1);
-    	System.out.println();
-    	Combattant.affComb(this.combattantP2);
-    	System.out.println();
-    	System.out.println();
-    	int j1=0,j2=0;
+	public void battle() {
+		System.out.println(this.combattantP1.size());
+		System.out.println(this.combattantP2.size());
+		Combattant.affComb(this.combattantP1);
+		System.out.println();
+		Combattant.affComb(this.combattantP2);
+		Collections.sort(this.combattantP1);
+		Collections.sort(this.combattantP2);
+		System.out.println();
+		System.out.println();
+		int j1=0,j2=0;
 		while(this.combattantP1.size()>0 && this.combattantP2.size()>0) {
 			j1=0;
 			j2=0;
@@ -107,8 +109,18 @@ public class Zone {
 			}
 		}
 		this.isFinish = true;
+	}
 
-
-    }
+	public void results(){
+		if(this.combattantP1.size() == 0) {
+			this.setWinner(HelloApplication.game.getPlayers()[1]);
+			HelloApplication.game.getPlayers()[1].updateScore();
+			System.out.println(HelloApplication.game.getPlayers()[1].getPseudo() +" a gagné" + this.name);
+		} else {
+			this.setWinner(HelloApplication.game.getPlayers()[0]);
+			HelloApplication.game.getPlayers()[0].updateScore();
+			System.out.println(HelloApplication.game.getPlayers()[0].getPseudo() +" a gagné" + this.name);
+		}
+	}
 
 }

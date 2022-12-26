@@ -7,12 +7,13 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Deploy">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Battle">
    <children>
       <Button layoutX="519.0" layoutY="126.0" mnemonicParsing="false" onAction="#next" text="Valider">
          <font>
             <Font size="16.0" />
-         </font></Button>
+         </font>
+      </Button>
       <ScrollPane fx:id="reserve" layoutX="57.0" layoutY="176.0" maxWidth="1.7976931348623157E308" prefHeight="490.0" prefWidth="196.0" style="-fx-border-color: #C9ADA7;">
          <content>
             <FlowPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="484.0" prefWidth="191.0" style="-fx-background-color: #b2967d; -fx-max-width: 225; -fx-orientation: HORIZONTAL; -fx-padding: 10; -fx-hgap: 10;" />

@@ -33,6 +33,16 @@ public class Partie {
         }
     }
 
+
+    public int getZoneIndex(Zone zone){
+        for(int i = 0; i < zones.length; i++){
+            if(zones[i] == zone){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public Zone[] getZones() {
         return this.zones;
     }
@@ -306,7 +316,7 @@ public class Partie {
         int resp;
         do {
             resp = (int) (Math.random() * 5);
-        } while (this.zones[resp].getIsFinish() != null);
+        } while (this.zones[resp].getIsFinish() ==true);
         return resp;
     }
 

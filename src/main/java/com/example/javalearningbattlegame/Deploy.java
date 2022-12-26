@@ -22,54 +22,67 @@ import java.util.ResourceBundle;
 public class Deploy implements Initializable {
     private List<Combattant> combattantsP1 = HelloApplication.game.getPlayers()[0].getCombattant();
     private List<Combattant> combattantsP2 = HelloApplication.game.getPlayers()[1].getCombattant();
-
-    @FXML
-    private FlowPane pane;
-    @FXML
-    private HBox hboxD;
     @FXML
     private Label error;
+    @FXML
+    private Label title;
+
+    @FXML
+    private ScrollPane reserve;
+    @FXML
+    private ScrollPane quartier;
+    @FXML
+    private ScrollPane biblio;
+
+    @FXML
+    private ScrollPane halleI;
+    @FXML
+    private ScrollPane halleS;
+    @FXML
+    private ScrollPane bureau;
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         error.setText("");
+        title.setText("Deploy : " +  HelloApplication.game.getPlayers()[1].getPseudo());
         setup(combattantsP2);
     }
 
     public void setup(List<Combattant> combattants) {
-        hboxD.getChildren().clear();
-        pane.getChildren().clear();
+        error.setText("");
+        buildDrop(reserve);
+        buildDrop(quartier);
+        buildDrop(biblio);
+        buildDrop(halleI);
+        buildDrop(halleS);
+        buildDrop(bureau);
+        FlowPane pane = (FlowPane) reserve.getContent();
         for (int i = 0; i < combattants.size(); i++) {
             pane.getChildren().add(buildDraggable(combattants.get(i), i));
-        }
-        for (int i = 0; i < 6; i++) {
-            hboxD.getChildren().add(buildDrop());
         }
     }
 
     public void deployComb() {
         List<Combattant> combFrom = combattantsP2.size() == 0 ? combattantsP1 : combattantsP2;
-        for (int i = 0; i < 5; i++) {
-            ScrollPane pane = (ScrollPane) hboxD.getChildren().get(i);
-            VBox vbox = (VBox) pane.getContent();
+        ScrollPane[] zones = {biblio, bureau, quartier, halleI,  halleS};
+        for (int j = 0; j < zones.length; j++) {
             List<Combattant> combZone = new ArrayList<Combattant>();
-            for (int j = 0; j < vbox.getChildren().size(); j++) {
-                HBox hbx = (HBox) vbox.getChildren().get(j);
-                combZone.add(combFrom.get(Integer.parseInt(hbx.getId())));
+            FlowPane pane = (FlowPane) zones[j].getContent();
+            for (int i = 0; i < pane.getChildren().size(); i++) {
+                combZone.add(combFrom.get(Integer.parseInt(pane.getChildren().get(i).getId())));
             }
             if(combattantsP2.size() == 0) {
-                HelloApplication.game.getZones()[i].setCombattantP1(combZone);
+                HelloApplication.game.getZones()[j].setCombattantP1(combZone);
             } else {
-                HelloApplication.game.getZones()[i].setCombattantP2(combZone);
+                HelloApplication.game.getZones()[j].setCombattantP2(combZone);
             }
         }
-        ScrollPane pane = (ScrollPane) hboxD.getChildren().get(5);
-        VBox vbox = (VBox) pane.getContent();
         List<Combattant> combZone = new ArrayList<Combattant>();
-        for (int j = 0; j < vbox.getChildren().size(); j++) {
-            HBox hbx = (HBox) vbox.getChildren().get(j);
-            combZone.add(combFrom.get(Integer.parseInt(hbx.getId())));
+        FlowPane pane = (FlowPane) reserve.getContent();
+        for (int i = 0; i < pane.getChildren().size(); i++) {
+            combZone.add(combFrom.get(Integer.parseInt(pane.getChildren().get(i).getId())));
         }
         if(combattantsP2.size() == 0) {
             HelloApplication.game.getPlayers()[0].setReserviste(combZone);
@@ -86,37 +99,34 @@ public class Deploy implements Initializable {
             deployComb();
             if (combattantsP1.size() != 0 || combattantsP2.size() != 0) {
                 setup(combattantsP1);
+                title.setText("Deploy" + HelloApplication.game.getPlayers()[0].getPseudo());
             } else {
-                HelloApplication.setScene("result.fxml");
+                HelloApplication.setScene("battle.fxml");
             }
             System.out.println("ok");
         }
     }
 
     public boolean verifydata() {
-        ScrollPane pane = (ScrollPane) hboxD.getChildren().get(hboxD.getChildren().size() - 1);
-        VBox vbox = (VBox) pane.getContent();
-        for (int i = 0; i < hboxD.getChildren().size(); i++) {
-            ScrollPane pane2 = (ScrollPane) hboxD.getChildren().get(i);
-            VBox vbox2 = (VBox) pane2.getContent();
-            if (vbox2.getChildren().size() < 1) {
+        ScrollPane[] zones = {biblio, bureau, quartier, halleI,  halleS};
+        for (int i = 0; i < zones.length; i++) {
+            FlowPane pane = (FlowPane) zones[i].getContent();
+            if (pane.getChildren().size() < 1) {
                 error.setText("Veuillez placer au minimum un combatant dans chaque Zone");
                 return false;
             }
         }
-        if (this.pane.getChildren().size() != 0) {
-            error.setText("Vous devez placer tous vos combattants");
-            return false;
-        } else if (vbox.getChildren().size() != 5) {
-            error.setText("Vous devez placer 5 réservistes");
+        FlowPane pane2 = (FlowPane) reserve.getContent();
+        if (pane2.getChildren().size() != 5) {
+            error.setText("Vous devez placer exactement 5 réservistes");
             return false;
         }
         return true;
     }
 
-    public ScrollPane buildDrop() {
-        final ScrollPane target = new ScrollPane();
-        target.setContent(new VBox());
+    public void buildDrop(ScrollPane target) {
+        FlowPane pane = (FlowPane) target.getContent();
+        pane.getChildren().clear();
         target.setOnDragOver(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
                 /* data is dragged over the target */
@@ -165,8 +175,8 @@ public class Deploy implements Initializable {
                 Dragboard db = event.getDragboard();
                 boolean success = false;
                 if (db.hasString()) {
-                    VBox vbx = (VBox) target.getContent();
-                    vbx.getChildren().add((HBox)event.getGestureSource());
+                    FlowPane flowPane = (FlowPane) target.getContent();
+                    flowPane.getChildren().add((HBox)event.getGestureSource());
                     success = true;
                 }
                 /* let the source know whether the string was successfully
@@ -176,11 +186,11 @@ public class Deploy implements Initializable {
                 event.consume();
             }
         });
-        return target;
     }
 
     public HBox buildDraggable(Combattant combattant, int id) {
         HBox source = new HBox();
+        source.setMinWidth(165);
         source.getStyleClass().add("combattant");
 
         VBox vbox1 = new VBox();
@@ -201,14 +211,14 @@ public class Deploy implements Initializable {
         imgView.setFitWidth(45);
 
         source.getChildren().addAll(imgView, vbox1, vbox2);
-        String[] icones = {"dex","for", "res","cons","ini", "cred"};
+        String[] icones = {"dex", "for", "res", "cons", "ini", "cred"};
         int[] values = combattant.getStats();
         for (int i = 0; i < 6; i++) {
             HBox hbox = new HBox();
             hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
-            hbox.getChildren().add(new Label(" "+String.valueOf(values[i])));
+            hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
             hbox.getStyleClass().add("iconesRow");
-            VBox vbox =(VBox) source.getChildren().get((i/3)+1);
+            VBox vbox = (VBox) source.getChildren().get((i / 3) + 1);
             vbox.getChildren().add(hbox);
         }
         source.setId(String.valueOf(id));
@@ -235,7 +245,6 @@ public class Deploy implements Initializable {
                 System.out.println("onDragDone");
                 /* if the data was successfully moved, clear it */
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    pane.getChildren().remove(source);
                 }
                 event.consume();
             }
