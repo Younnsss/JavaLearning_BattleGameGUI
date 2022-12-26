@@ -29,14 +29,13 @@ public class HelloView2 implements Initializable {
     @FXML
     private FlowPane  elite;
     @FXML
-    private Button valid;
-    @FXML
     private VBox customBox;
     @FXML
     private Label cred;
-
     @FXML
     private Label title;
+    @FXML
+    private ImageView img;
     @FXML
     private Label error;
     private Slider forSlider;
@@ -53,9 +52,8 @@ public class HelloView2 implements Initializable {
             if (HelloApplication.game.getPlayers()[1].getCreditECTS() != 0) {
                 error.setText("Vous n'avez pas utilisé tous vos crédits");
             } else {
-                HelloApplication.setScene("hello-view2.fxml");
+                HelloApplication.setScene("deploy.fxml");
             }
-            HelloApplication.setScene("deploy.fxml");
         } else {
             if (HelloApplication.game.getPlayers()[0].getCreditECTS() != 0) {
                 error.setText("Vous n'avez pas utilisé tous vos crédits");
@@ -73,7 +71,8 @@ public class HelloView2 implements Initializable {
 
     public void setup() {
         Player player = done ? HelloApplication.game.getPlayers()[1] : HelloApplication.game.getPlayers()[0];
-        title.setText(player.getPseudo()+"'s Army");
+        title.setText(player.getPseudo());
+        img.setImage( new Image(HelloApplication.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
         cred.setText("Crédits Restants: " + player.getCreditECTS());
         maitreGobi.getChildren().clear();
         maitreGobi.getChildren().add(buildComb(player.getCombattant().get(0), player));

@@ -26,6 +26,8 @@ public class Deploy implements Initializable {
     private Label error;
     @FXML
     private Label title;
+    @FXML
+    private ImageView img;
 
     @FXML
     private ScrollPane reserve;
@@ -33,7 +35,6 @@ public class Deploy implements Initializable {
     private ScrollPane quartier;
     @FXML
     private ScrollPane biblio;
-
     @FXML
     private ScrollPane halleI;
     @FXML
@@ -41,12 +42,11 @@ public class Deploy implements Initializable {
     @FXML
     private ScrollPane bureau;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         error.setText("");
-        title.setText("Deploy : " +  HelloApplication.game.getPlayers()[1].getPseudo());
+        title.setText(HelloApplication.game.getPlayers()[1].getPseudo());
+        img.setImage(new Image(HelloApplication.class.getResource("soldat.png").toExternalForm()));
         setup(combattantsP2);
     }
 
@@ -99,7 +99,8 @@ public class Deploy implements Initializable {
             deployComb();
             if (combattantsP1.size() != 0 || combattantsP2.size() != 0) {
                 setup(combattantsP1);
-                title.setText("Deploy" + HelloApplication.game.getPlayers()[0].getPseudo());
+                title.setText(HelloApplication.game.getPlayers()[0].getPseudo());
+                img.setImage(new Image(HelloApplication.class.getResource("captain.png").toExternalForm()));
             } else {
                 HelloApplication.setScene("battle.fxml");
             }

@@ -3,13 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Battle">
    <children>
-      <Button layoutX="519.0" layoutY="126.0" mnemonicParsing="false" onAction="#next" text="Valider">
+      <Button layoutX="513.0" layoutY="158.0" mnemonicParsing="false" onAction="#next" text="Valider">
          <font>
             <Font size="16.0" />
          </font>
@@ -44,7 +46,7 @@
             <FlowPane maxHeight="149.0" maxWidth="1.7976931348623157E308" prefHeight="149.0" prefWidth="372.0" style="-fx-background-color: #e6beae; -fx-max-height: 130; -fx-orientation: VERTICAL; -fx-padding: 10; -fx-hgap: 10;" />
          </content>
       </ScrollPane>
-      <FlowPane layoutX="383.0" layoutY="263.0" prefHeight="39.0" prefWidth="315.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d5bdaf;">
+      <FlowPane fx:id="bde" layoutX="383.0" layoutY="263.0" prefHeight="39.0" prefWidth="315.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d5bdaf;">
          <children>
             <Label prefHeight="32.0" prefWidth="303.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Bureau des Etudiants" textFill="WHITE">
                <font>
@@ -53,7 +55,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane layoutX="849.0" layoutY="262.0" prefHeight="39.0" prefWidth="203.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e3d5ca;">
+      <FlowPane fx:id="hs" layoutX="849.0" layoutY="262.0" prefHeight="39.0" prefWidth="203.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e3d5ca;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Halle Sportive" textFill="WHITE">
                <font>
@@ -62,7 +64,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane layoutX="864.0" layoutY="47.0" prefHeight="39.0" prefWidth="187.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e6beae;">
+      <FlowPane fx:id="bib" layoutX="864.0" layoutY="47.0" prefHeight="39.0" prefWidth="187.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e6beae;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Bibliothèque" textFill="WHITE">
                <font>
@@ -80,7 +82,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane layoutX="375.0" layoutY="470.0" prefHeight="39.0" prefWidth="321.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #C9ADA7;">
+      <FlowPane fx:id="qa" layoutX="375.0" layoutY="470.0" prefHeight="39.0" prefWidth="321.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #C9ADA7;">
          <children>
             <Label prefHeight="32.0" prefWidth="314.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Quartier administratif" textFill="WHITE">
                <font>
@@ -89,7 +91,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane layoutX="832.0" layoutY="471.0" prefHeight="39.0" prefWidth="249.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d8b4a0;">
+      <FlowPane fx:id="hi" layoutX="832.0" layoutY="471.0" prefHeight="39.0" prefWidth="249.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d8b4a0;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Halle industrielle" textFill="WHITE">
                <font>
@@ -103,9 +105,40 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Label fx:id="error" layoutX="418.0" layoutY="180.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
+      <Label fx:id="error" layoutX="417.0" layoutY="205.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="97.0" fitWidth="81.0" layoutX="33.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@captain.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="66.0" layoutX="201.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@soldat.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="score1" layoutX="107.0" layoutY="40.0" style="-fx-font-weight: bold;" text="0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="score2" layoutX="157.0" layoutY="40.0" style="-fx-font-weight: bold;" text="0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img" fitHeight="81.0" fitWidth="70.0" layoutX="418.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="player" layoutX="427.0" layoutY="102.0" style="-fx-font-weight: bold;" text="Joueur">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="21.0" prefHeight="74.0" prefWidth="150.0" style="-fx-font-weight: bold;" text="Truce">
+         <font>
+            <Font size="51.0" />
          </font>
       </Label>
    </children>

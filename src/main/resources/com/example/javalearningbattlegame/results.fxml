@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Results">
+   <children>
+      <ImageView fitHeight="202.0" fitWidth="191.0" layoutX="171.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@captain.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="198.0" fitWidth="137.0" layoutX="890.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@soldat.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="title1" layoutX="141.0" layoutY="307.0" style="-fx-font-weight: bold;" text="Joueur 1" textFill="#22223b">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="title2" layoutX="869.0" layoutY="307.0" style="-fx-font-weight: bold;" text="Joueur 2" textFill="#22223b">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="score1" layoutX="417.0" layoutY="140.0" prefHeight="67.0" prefWidth="56.0" style="-fx-font-weight: bold;" text="0" textFill="#22223b">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="score2" layoutX="681.0" layoutY="140.0" prefHeight="99.0" prefWidth="56.0" style="-fx-font-weight: bold;" text="0" textFill="#22223b">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <Label layoutX="424.0" layoutY="22.0" prefHeight="100.0" prefWidth="331.0" style="-fx-font-weight: bold;" text="End Game" textFill="#22223b">
+         <font>
+            <Font size="68.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="393.0" prefHeight="305.0" prefWidth="1201.0" style="-fx-background-color: #e3d5ca; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="161.0" layoutY="2.0" prefHeight="120.0" prefWidth="630.0" style="-fx-font-weight: bold;" text="The Winner Is..." textFill="#b2967d">
+               <font>
+                  <Font size="80.0" />
+               </font>
+            </Label>
+            <Label fx:id="titleW" layoutX="899.0" layoutY="228.0" prefHeight="56.0" prefWidth="129.0" style="-fx-font-weight: bold;" text="Joueur" textFill="#b2967d">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgW" fitHeight="196.0" fitWidth="137.0" layoutX="893.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
