@@ -1,18 +1,56 @@
 package com.example.javalearningbattlegame;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.util.converter.DoubleStringConverter;
 import models.Combattant;
 
 import java.util.Arrays;
 
 public class UtilsGUI {
+
+    public static Slider stratSlider(String value) {
+        Slider slider = new Slider(0, 2, 0);
+        int val = value.equals("Offensive") ? 0 : value.equals("Aleatoire") ? 1 : 2;
+        slider.setMin(0);
+        slider.setMax(2);
+        slider.setValue(val);
+        slider.setMinorTickCount(0);
+        slider.setMajorTickUnit(1);
+        slider.setSnapToTicks(true);
+        slider.setShowTickMarks(true);
+        slider.setShowTickLabels(true);
+        slider.setMaxWidth(150);
+        slider.setLabelFormatter(new DoubleStringConverter() {
+            @Override
+            public String toString(Double n) {
+                if (n < 0.5) return "Offensive";
+                if (n < 1.5) return "Aleatoire";
+                return "Defensive";
+            }
+
+            @Override
+            public Double fromString(String s) {
+                switch (s) {
+                    case "Offensive":
+                        return 0d;
+                    case "Aleatoire":
+                        return 1d;
+                    default:
+                        return 2d;
+                }
+            }
+        });
+        return slider;
+    }
     public static void buildDrop(ScrollPane target) {
         FlowPane pane = (FlowPane) target.getContent();
         pane.getChildren().clear();

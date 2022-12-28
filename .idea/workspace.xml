@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : Game Battle">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Results.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/results.fxml" afterDir="false" />
+    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : End Game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Deploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Deploy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloView2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloView2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/UtilsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/UtilsGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/battle.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/deploy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/deploy.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,14 +98,22 @@
       <option name="project" value="LOCAL" />
       <updated>1672013159396</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat : End Game">
+      <created>1672096342452</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672096342452</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat : Game Initialization" />
     <MESSAGE value="feat : Game Style" />
     <MESSAGE value="feat : Game Battle" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : Game Battle" />
+    <MESSAGE value="feat : End Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : End Game" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

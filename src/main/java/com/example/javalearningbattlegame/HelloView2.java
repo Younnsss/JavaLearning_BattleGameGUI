@@ -38,6 +38,7 @@ public class HelloView2 implements Initializable {
     private ImageView img;
     @FXML
     private Label error;
+    private HBox lastSelected = null;
     private Slider forSlider;
     private Slider dexSlider;
     private Slider iniSlider;
@@ -100,36 +101,60 @@ public class HelloView2 implements Initializable {
 
 
     public void buildCustomBox(Combattant combattant, HBox box, Player player) {
-
+        customBox.getChildren().clear();
+        FlowPane pane;
+        ImageView img;
+        String style = "-fx-hgap: 20px; -fx-alignment: center; -fx-width: 100%;";
+        img =new ImageView(new Image(HelloApplication.class.getResource("icones/for.png").toExternalForm()));
         forSlider = buildSlider(combattant.getForce(), combattant.getRole().getForce(), player.getCreditECTS());
         forSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setForce(combattant.getForce() + newValue.intValue() - oldValue.intValue());
             update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
+        pane = new FlowPane(img, forSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
 
+        img =new ImageView(new Image(HelloApplication.class.getResource("icones/dex.png").toExternalForm()));
         dexSlider = buildSlider(combattant.getDexterite(), combattant.getRole().getDexterite(), player.getCreditECTS());
         dexSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setDexterite(combattant.getDexterite() + newValue.intValue() - oldValue.intValue());
             update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
+        pane = new FlowPane(img, dexSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
 
+        img =new ImageView(new Image(HelloApplication.class.getResource("icones/ini.png").toExternalForm()));
         iniSlider = buildSlider(combattant.getInitiative(), combattant.getRole().getInitiative(), player.getCreditECTS());
         iniSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setInitiative(combattant.getInitiative() + newValue.intValue() - oldValue.intValue());
             update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
+        pane = new FlowPane(img, iniSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
 
+        img =new ImageView(new Image(HelloApplication.class.getResource("icones/cons.png").toExternalForm()));
         consSlider = buildSlider(combattant.getConstitution(), combattant.getRole().getConstitution(), player.getCreditECTS());
         consSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setConstitution(combattant.getConstitution() + newValue.intValue() - oldValue.intValue());
             update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
+        pane = new FlowPane(img, consSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
 
+        img =new ImageView(new Image(HelloApplication.class.getResource("icones/res.png").toExternalForm()));
         resSlider = buildSlider(combattant.getResistance(), combattant.getRole().getResistance(), player.getCreditECTS());
         resSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setResistance(combattant.getResistance() + newValue.intValue() - oldValue.intValue());
             update(box, combattant, oldValue.intValue() - newValue.intValue(), player);
         });
+        pane = new FlowPane(img, resSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
+
         straSlider = stratSlider(combattant.getStrategie());
         straSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.intValue() == 0) {
@@ -141,17 +166,16 @@ public class HelloView2 implements Initializable {
             }
             update(box, combattant, 0, player);
         });
-
-        customBox.getChildren().clear();
-        customBox.getChildren().addAll(forSlider, dexSlider, iniSlider, consSlider, resSlider, straSlider);
-
-
+        pane = new FlowPane(straSlider);
+        pane.setStyle(style);
+        customBox.getChildren().add(pane);
     }
 
 
     public void update(HBox box, Combattant combattant, int value, Player player) {
         box.getChildren().clear();
-        box.getChildren().add(buildComb(combattant, player));
+        HBox newBox = buildComb(combattant, player);
+        box.getChildren().addAll(newBox.getChildren());
         player.setCreditECTS(player.getCreditECTS() + value);
         cred.setText("Crédits restants : " + player.getCreditECTS());
         error.setText("");
@@ -208,7 +232,7 @@ public class HelloView2 implements Initializable {
         slider.setMinorTickCount(0);
         slider.setBlockIncrement(1);
         slider.setSnapToTicks(true);
-        slider.setPrefWidth(200);
+        slider.setPrefWidth(250);
         return slider;
     }
 
@@ -246,11 +270,15 @@ public class HelloView2 implements Initializable {
             VBox vbox = (VBox) box.getChildren().get((i / 3) + 1);
             vbox.getChildren().add(hbox);
         }
-        HBox finalBox = new HBox(box);
         box.setOnMouseClicked((MouseEvent event) -> {
-            buildCustomBox(combattant, finalBox, player);
+            buildCustomBox(combattant, box, player);
+            if(lastSelected != null){
+                lastSelected.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
+            }
+            box.setBackground(new Background(new BackgroundFill(Color.GREY, new CornerRadii(10), Insets.EMPTY)));
+            lastSelected = box;
         });
-        return finalBox;
+        return box;
     }
 
 

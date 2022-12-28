@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
-      <children>
-         <VBox prefHeight="200.0" prefWidth="100.0">
-            <children>
-               <TextField fx:id="pseudoP1" />
-               <ChoiceBox fx:id="filiereP1" prefWidth="150.0" />
-            </children>
-         </VBox>
-         <VBox prefHeight="200.0" prefWidth="100.0">
-            <children>
-               <TextField fx:id="pseudoP2" />
-               <ChoiceBox fx:id="filiereP2" prefWidth="150.0" />
-            </children>
-         </VBox>
-      </children>
-   </HBox>
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.HelloController">
+   <children>
+      <ImageView fitHeight="701.0" fitWidth="709.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fond.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="703.0" layoutY="-1.0" prefHeight="701.0" prefWidth="498.0" style="-fx-background-color: #b2967d; -fx-background-radius: 30;">
+         <children>
+            <Button layoutX="96.0" layoutY="587.0" onAction="#onHelloButtonClick" prefHeight="34.0" prefWidth="315.0" style="-fx-border-radius: 10; -fx-background-radius: 30;" text="Start">
+               <font>
+                  <Font size="23.0" />
+               </font></Button>
+            <TextField fx:id="pseudoP1" layoutX="251.0" layoutY="100.0" prefHeight="45.0" prefWidth="190.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="pseudoP2" layoutX="64.0" layoutY="396.0" prefHeight="47.0" prefWidth="191.0" style="-fx-background-radius: 10;" />
+            <ChoiceBox fx:id="filiereP1" layoutX="250.0" layoutY="165.0" prefHeight="44.0" prefWidth="192.0" style="-fx-background-radius: 10;" />
+            <ChoiceBox fx:id="filiereP2" layoutX="64.0" layoutY="460.0" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 10;" />
+            <ImageView fitHeight="170.0" fitWidth="124.0" layoutX="335.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@soldat.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="172.0" fitWidth="86.0" layoutX="74.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@captain.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="143.0" fitWidth="150.0" layoutX="172.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@versus.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

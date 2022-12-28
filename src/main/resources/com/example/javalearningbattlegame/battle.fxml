@@ -7,11 +7,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Battle">
    <children>
-      <Button layoutX="513.0" layoutY="158.0" mnemonicParsing="false" onAction="#next" text="Valider">
+      <Button layoutX="361.0" layoutY="157.0" mnemonicParsing="false" onAction="#next" text="Valider">
          <font>
             <Font size="16.0" />
          </font>
@@ -105,7 +106,7 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Label fx:id="error" layoutX="417.0" layoutY="205.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
+      <Label fx:id="error" layoutX="268.0" layoutY="198.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
          <font>
             <Font size="14.0" />
          </font>
@@ -141,5 +142,6 @@
             <Font size="51.0" />
          </font>
       </Label>
+      <VBox fx:id="customBox" layoutX="557.0" layoutY="143.0" prefHeight="56.0" prefWidth="160.0" style="-fx-background-color: #e3d5ca; -fx-padding: 10; -fx-background-radius: 10;" />
    </children>
 </AnchorPane>
