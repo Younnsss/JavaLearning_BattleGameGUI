@@ -33,11 +33,6 @@ public class Player {
         return this.pseudo;
     }
 
-    void setPseudo(String value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.pseudo = value;
-    }
-
     public int getCreditECTS() {
         // Automatically generated method. Please delete this comment before entering specific code.
         return this.creditECTS;
@@ -46,26 +41,6 @@ public class Player {
     public void setCreditECTS(int value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.creditECTS = value;
-    }
-
-    String getFiliere() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.filiere;
-    }
-
-    void setFiliere(String value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.filiere = value;
-    }
-
-    public boolean getWinner() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.winner;
-    }
-
-    void setWinner(boolean value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.winner = value;
     }
 
     public List<Combattant> getCombattant() {

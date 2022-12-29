@@ -196,45 +196,6 @@ public class Combattant implements Comparable<Combattant>{
     			stats[3], stats[4], s[(int) (Math.random() * 3)] , r);
     	return warrior;
     }
-     
-     
-     /*
- 	 * This function allow to each player to generate their fighters.
- 	 * As an input, * The function takes, the number of the combattant and the player associated.
- 	 * to each ability and the strategy of the fighter
- 	 * Format: Str/Dex/Res/Con/Ini/Strat
- 	 * This function returns one combattant.
- 	 */
-     static Combattant generate(int nbCombattant, Player player) {
-    	 
-    	 	String[] input;
-    	 	Role r;
-    	 	if(nbCombattant==0) {r=Role.maitreGobi;}
-    	 	else if(nbCombattant<5) {r=Role.elite;}
-    	 	else {r=Role.basique;}
-    	 	int[] stats = r.getStats();
-    	 	
-			System.out.println(player.getCreditECTS() + "credit(s)° restant");
-			System.out.println("Saisir Dex/For/Res/Cons/Ini/Stra : " + (nbCombattant+1)+"-"+r +" -> "+ Arrays.toString(stats));
-			input=Utils.getCombInput("", stats, player.getCreditECTS());
-			
-			Combattant warrior = new Combattant(Integer.parseInt(input[0])+stats[0], 
-					Integer.parseInt(input[1])+stats[1], Integer.parseInt(input[2])+stats[2], 
-					Integer.parseInt(input[3])+stats[3], Integer.parseInt(input[4])+stats[4], 
-					input[5], r);
-			
-	    	int sum=0;
-	    	for (int i = 0; i < input.length-1; i++) {
-				sum +=Integer.parseInt(input[i]);
-			}
-	    	player.setCreditECTS(player.getCreditECTS()-sum);
-			
-			
-			System.out.println(""+(nbCombattant+1) + " : " + r +" -> "+ Arrays.toString(warrior.getStats()));
-			return warrior;
-     }
-
-
 	@Override
 	public int compareTo(Combattant o) {
 		return o.getInitiative()-this.initiative;
