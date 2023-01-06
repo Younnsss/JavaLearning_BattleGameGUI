@@ -2,20 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController.Login">
    <children>
-      <ImageView fitHeight="701.0" fitWidth="709.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="701.0" fitWidth="736.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fond.png" />
+            <Image url="@Fond.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="703.0" layoutY="-1.0" prefHeight="701.0" prefWidth="498.0" style="-fx-background-color: #b2967d; -fx-background-radius: 30;">
+      <AnchorPane layoutX="675.0" layoutY="-1.0" prefHeight="702.0" prefWidth="526.0" style="-fx-background-color: #b2967d; -fx-background-radius: 30;">
          <children>
             <Button layoutX="96.0" layoutY="587.0" onAction="#onHelloButtonClick" prefHeight="34.0" prefWidth="315.0" style="-fx-border-radius: 10; -fx-background-radius: 30;" text="Start">
                <font>
@@ -42,5 +44,16 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Pane layoutX="1148.0" layoutY="-2.0" prefHeight="703.0" prefWidth="54.0" style="-fx-background-color: #b2967d;" />
+      <ImageView fitHeight="399.0" fitWidth="613.0" layoutX="45.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="149.0" layoutY="255.0" style="-fx-font-weight: bold; -fx-font-family: Impact;" styleClass="text" text="Battle Game" textFill="#b2967d">
+         <font>
+            <Font size="84.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

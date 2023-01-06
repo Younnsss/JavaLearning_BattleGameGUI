@@ -1,8 +1,8 @@
-module com.example.javalearningbattlegame {
+module GUIController {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.javalearningbattlegame to javafx.fxml;
-    exports com.example.javalearningbattlegame;
+    opens GUIController to javafx.fxml;
+    exports GUIController;
 }

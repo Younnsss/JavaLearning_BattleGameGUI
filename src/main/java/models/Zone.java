@@ -1,6 +1,6 @@
 package models;
 
-import com.example.javalearningbattlegame.HelloApplication;
+import GUIController.Main;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,13 +113,13 @@ public class Zone {
 
 	public void results(){
 		if(this.combattantP1.size() == 0) {
-			this.setWinner(HelloApplication.game.getPlayers()[1]);
-			HelloApplication.game.getPlayers()[1].updateScore();
-			System.out.println(HelloApplication.game.getPlayers()[1].getPseudo() +" a gagné" + this.name);
+			this.setWinner(Main.game.getPlayers()[1]);
+			Main.game.getPlayers()[1].updateScore();
+			System.out.println(Main.game.getPlayers()[1].getPseudo() +" a gagné" + this.name);
 		} else {
-			this.setWinner(HelloApplication.game.getPlayers()[0]);
-			HelloApplication.game.getPlayers()[0].updateScore();
-			System.out.println(HelloApplication.game.getPlayers()[0].getPseudo() +" a gagné" + this.name);
+			this.setWinner(Main.game.getPlayers()[0]);
+			Main.game.getPlayers()[0].updateScore();
+			System.out.println(Main.game.getPlayers()[0].getPseudo() +" a gagné" + this.name);
 		}
 	}
 

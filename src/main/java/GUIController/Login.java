@@ -1,4 +1,4 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class Login implements Initializable {
     @FXML
     private Label welcomeText;
     @FXML
@@ -26,8 +26,8 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onHelloButtonClick() throws IOException {
-        HelloApplication.initGame(pseudoP1.getText().toString(), filiereP1.getValue().toString() ,pseudoP2.getText().toString(), filiereP2.getValue().toString());
-        HelloApplication.setScene("hello-view2.fxml");
+        Main.initGame(pseudoP1.getText().toString(), filiereP1.getValue().toString() ,pseudoP2.getText().toString(), filiereP2.getValue().toString());
+        Main.setScene("settingup.fxml");
     }
 
     @Override

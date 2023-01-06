@@ -1,7 +1,6 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
@@ -168,7 +167,7 @@ public class UtilsGUI {
         } else if (combattant.getStrategie().equals("Aleatoire")) {
             strategie = "random";
         }
-        Image img = new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
+        Image img = new Image(Main.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(70);
         imgView.setFitWidth(45);
@@ -178,7 +177,7 @@ public class UtilsGUI {
         int[] values = combattant.getStats();
         for (int i = 0; i < 6; i++) {
             HBox hbox = new HBox();
-            hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
+            hbox.getChildren().add(new ImageView(new Image(Main.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
             hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
             hbox.getStyleClass().add("iconesRow");
             VBox vbox = (VBox) source.getChildren().get((i / 3) + 1);

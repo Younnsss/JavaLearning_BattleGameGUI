@@ -1,4 +1,4 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,9 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import models.Combattant;
-import models.Player;
 import models.Zone;
 
 import java.io.IOException;
@@ -22,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.example.javalearningbattlegame.UtilsGUI.buildDrop;
+import static GUIController.UtilsGUI.buildDrop;
 
-public class Battle implements Initializable {
+public class Truce implements Initializable {
 
     private Slider straSlider;
     @FXML
@@ -80,16 +78,16 @@ public class Battle implements Initializable {
     }
 
     public void gameManagement() {
-        int zone = HelloApplication.game.chooseZone();
-        HelloApplication.game.getZones()[zone].battle();
-        HelloApplication.game.getZones()[zone].results();
-        this.currentZone = HelloApplication.game.getZones()[zone];
+        int zone = Main.game.chooseZone();
+        Main.game.getZones()[zone].battle();
+        Main.game.getZones()[zone].results();
+        this.currentZone = Main.game.getZones()[zone];
         done = false;
-        score1.setText(String.valueOf(HelloApplication.game.getPlayers()[0].getScore()));
-        score2.setText(String.valueOf(HelloApplication.game.getPlayers()[1].getScore()));
-        if (HelloApplication.game.getPlayers()[0].getScore() == 3 || HelloApplication.game.getPlayers()[1].getScore() == 3) {
+        score1.setText(String.valueOf(Main.game.getPlayers()[0].getScore()));
+        score2.setText(String.valueOf(Main.game.getPlayers()[1].getScore()));
+        if (Main.game.getPlayers()[0].getScore() == 3 || Main.game.getPlayers()[1].getScore() == 3) {
             try {
-                HelloApplication.setScene("results.fxml");
+                Main.setScene("results.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -98,24 +96,24 @@ public class Battle implements Initializable {
 
     public void guiSetup() {
         error.setText("");
-        img.setImage( new Image(HelloApplication.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
-        player.setText(HelloApplication.game.getPlayers()[done?1:0].getPseudo());
+        img.setImage( new Image(Main.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
+        player.setText(Main.game.getPlayers()[done?1:0].getPseudo());
         ScrollPane[] zones = {biblio, bureau, quartier, halleI, halleS};
         FlowPane[] zonesName = {bib, bde, qa, hi, hs};
-        List<Combattant> combs = done ? HelloApplication.game.getPlayers()[1].getReserviste() : HelloApplication.game.getPlayers()[0].getReserviste();
+        List<Combattant> combs = done ? Main.game.getPlayers()[1].getReserviste() : Main.game.getPlayers()[0].getReserviste();
         draggableZone(reserve, combs);
-        for (Zone zone : HelloApplication.game.getZones()) {
+        for (Zone zone : Main.game.getZones()) {
             combs = done ? zone.getCombattantP2() : zone.getCombattantP1();
-            resetZone(zones[HelloApplication.game.getZoneIndex(zone)]);
+            resetZone(zones[Main.game.getZoneIndex(zone)]);
             if (zone.getIsFinish()) {
-                customColor(zone, zones[HelloApplication.game.getZoneIndex(zone)], zonesName[HelloApplication.game.getZoneIndex(zone)]);
+                customColor(zone, zones[Main.game.getZoneIndex(zone)], zonesName[Main.game.getZoneIndex(zone)]);
                 if (done ? zone.getCombattantP2().size() > 1 : zone.getCombattantP1().size() > 1) {
-                    dropDragZone(zones[HelloApplication.game.getZoneIndex(zone)], combs);
+                    dropDragZone(zones[Main.game.getZoneIndex(zone)], combs);
                 } else {
-                    nonDroppableZone(zones[HelloApplication.game.getZoneIndex(zone)], combs);
+                    nonDroppableZone(zones[Main.game.getZoneIndex(zone)], combs);
                 }
             } else {
-                nonDraggableZone(zones[HelloApplication.game.getZoneIndex(zone)], combs);
+                nonDraggableZone(zones[Main.game.getZoneIndex(zone)], combs);
             }
         }
     }
@@ -150,7 +148,7 @@ public class Battle implements Initializable {
         } else if (combattant.getStrategie().equals("Aleatoire")) {
             strategie = "random";
         }
-        ImageView imgView = new ImageView(new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm()));
+        ImageView imgView = new ImageView(new Image(Main.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm()));
         imgView.setFitHeight(70);
         imgView.setFitWidth(45);
         box.getChildren().addAll(imgView, vbx1, vbx2);
@@ -217,8 +215,8 @@ public class Battle implements Initializable {
         this.resDep.clear();
         this.zoneDep.clear();
         ScrollPane[] zones = {biblio, bureau, quartier, halleI, halleS};
-        for (Zone zone : HelloApplication.game.getZones()) {
-            FlowPane pane = (FlowPane) zones[HelloApplication.game.getZoneIndex(zone)].getContent();
+        for (Zone zone : Main.game.getZones()) {
+            FlowPane pane = (FlowPane) zones[Main.game.getZoneIndex(zone)].getContent();
             for (int i = 0; i < pane.getChildren().size(); i++) {
                 HBox hBox = (HBox) pane.getChildren().get(i);
                 if (hBox.getId() != null) {
@@ -227,10 +225,10 @@ public class Battle implements Initializable {
             }
         }
         if (done) {
-            HelloApplication.game.getPlayers()[1].getReserviste().removeAll(resDep);
+            Main.game.getPlayers()[1].getReserviste().removeAll(resDep);
             currentZone.combattantP2.removeAll(zoneDep);
         } else {
-            HelloApplication.game.getPlayers()[0].getReserviste().removeAll(resDep);
+            Main.game.getPlayers()[0].getReserviste().removeAll(resDep);
             currentZone.combattantP1.removeAll(zoneDep);
         }
     }
@@ -239,11 +237,11 @@ public class Battle implements Initializable {
         int index = Integer.parseInt(id) < 5 ? Integer.parseInt(id) : Integer.parseInt(id) - 5;
         if (Integer.parseInt(id) < 5) {
             if (done) {
-                Combattant combattant = HelloApplication.game.getPlayers()[1].getReserviste().get(index);
+                Combattant combattant = Main.game.getPlayers()[1].getReserviste().get(index);
                 this.resDep.add(combattant);
                 zone.getCombattantP2().add(combattant);
             } else {
-                Combattant combattant = HelloApplication.game.getPlayers()[0].getReserviste().get(index);
+                Combattant combattant = Main.game.getPlayers()[0].getReserviste().get(index);
                 this.resDep.add(combattant);
                 zone.getCombattantP1().add(combattant);
             }
@@ -279,11 +277,11 @@ public class Battle implements Initializable {
 
     public boolean validate() {
         ScrollPane[] zones = {biblio, bureau, quartier, halleI, halleS};
-        for (Zone zone : HelloApplication.game.getZones()) {
+        for (Zone zone : Main.game.getZones()) {
             if (zone.getIsFinish() && (done ? zone.getCombattantP2().size() > 0 : zone.getCombattantP1().size() > 0)) {
-                FlowPane pane = (FlowPane) zones[HelloApplication.game.getZoneIndex(zone)].getContent();
+                FlowPane pane = (FlowPane) zones[Main.game.getZoneIndex(zone)].getContent();
                 if (pane.getChildren().size() != 1) {
-                    error.setText("You must keep only one combattant in each controlled zone");
+                    error.setText("Vous devez conserver au minimum un combattant dans chaque zone controlée");
                     return false;
                 }
             }

@@ -4,28 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : Game Style">
+    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : File directory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Truce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Deploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Deploy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloView2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/HelloView2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/HelloView2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/SettingUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/Results.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Results.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalearningbattlegame/UtilsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/UtilsGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Combattant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Combattant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Partie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Zone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/battle.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/deploy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/deploy.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/results.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/basique/attaque.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/basique/attaque.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/basique/basique.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/basique/basique.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/basique/defense.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/basique/defense.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/basique/random.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/basique/random.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/truce.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/captain.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/captain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/deploy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/deploy.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/elite/attaque.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/elite/attaque.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/elite/defense.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/elite/defense.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/elite/elite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/elite/elite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/elite/random.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/elite/random.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/fond.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/fond.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/hello-view2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/settingup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/cons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/cons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/cred.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/cred.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/dex.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/dex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/for.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/for.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/ini.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/ini.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/icones/res.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/icones/res.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/cons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/cons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/cred.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/cred.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/dex.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/dex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/for.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/for.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/ini.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/ini.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/iconesBase/res.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/iconesBase/res.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/maitreGobi/attaque.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/maitreGobi/attaque.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/maitreGobi/defense.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/maitreGobi/defense.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/maitreGobi/maitreGobi.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/maitreGobi/maitreGobi.xcf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/maitreGobi/random.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/maitreGobi/random.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/results.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/soldat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/soldat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javalearningbattlegame/versus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/versus.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,15 +92,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\GUIController" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\maitreGobi" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\elite" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\basique" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\icones" />
-      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.javalearningbattlegame" />
       <recent name="GUIController" />
+      <recent name="com.example.javalearningbattlegame" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -131,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672243912084</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat : File directory">
+      <created>1672326109597</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672326109597</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,7 +169,8 @@
     <MESSAGE value="feat : Game Battle" />
     <MESSAGE value="feat : End Game" />
     <MESSAGE value="feat : Game Style" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : Game Style" />
+    <MESSAGE value="feat : File directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : File directory" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

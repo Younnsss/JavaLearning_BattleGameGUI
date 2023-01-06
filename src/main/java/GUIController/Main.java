@@ -1,23 +1,24 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import models.Partie;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     public static Partie game = new Partie();
     private static Stage stage;
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage=primaryStage;
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
-        stage.setTitle("Hello!");
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
     }
@@ -25,9 +26,9 @@ public class HelloApplication extends Application {
 
 
     public static void setScene(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
-        scene.getStylesheets().add(HelloApplication.class.getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         stage.setScene(scene);
     }
 

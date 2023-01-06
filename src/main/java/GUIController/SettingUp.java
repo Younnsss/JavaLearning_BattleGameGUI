@@ -1,12 +1,8 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
-import javafx.css.converter.StringConverter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloView2 implements Initializable {
+public class SettingUp implements Initializable {
     @FXML
     private FlowPane basique;
 
@@ -50,13 +46,13 @@ public class HelloView2 implements Initializable {
 
     public void validate() throws IOException {
         if (done) {
-            if (HelloApplication.game.getPlayers()[1].getCreditECTS() != 0) {
+            if (Main.game.getPlayers()[1].getCreditECTS() != 0) {
                 error.setText("Vous n'avez pas utilisé tous vos crédits");
             } else {
-                HelloApplication.setScene("deploy.fxml");
+                Main.setScene("deploy.fxml");
             }
         } else {
-            if (HelloApplication.game.getPlayers()[0].getCreditECTS() != 0) {
+            if (Main.game.getPlayers()[0].getCreditECTS() != 0) {
                 error.setText("Vous n'avez pas utilisé tous vos crédits");
             } else {
                 done = true;
@@ -71,9 +67,9 @@ public class HelloView2 implements Initializable {
     }
 
     public void setup() {
-        Player player = done ? HelloApplication.game.getPlayers()[1] : HelloApplication.game.getPlayers()[0];
+        Player player = done ? Main.game.getPlayers()[1] : Main.game.getPlayers()[0];
         title.setText(player.getPseudo());
-        img.setImage( new Image(HelloApplication.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
+        img.setImage( new Image(Main.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
         cred.setText("Crédits Restants: " + player.getCreditECTS());
         maitreGobi.getChildren().clear();
         maitreGobi.getChildren().add(buildComb(player.getCombattant().get(0), player));
@@ -89,11 +85,11 @@ public class HelloView2 implements Initializable {
 
     public void randomize() {
         if (done) {
-            HelloApplication.game.getPlayers()[1].setCreditECTS(400);
-            HelloApplication.game.initAutoComb(1);
+            Main.game.getPlayers()[1].setCreditECTS(400);
+            Main.game.initAutoComb(1);
         } else {
-            HelloApplication.game.getPlayers()[0].setCreditECTS(400);
-            HelloApplication.game.initAutoComb(0);
+            Main.game.getPlayers()[0].setCreditECTS(400);
+            Main.game.initAutoComb(0);
         }
         setup();
         customBox.getChildren().clear();
@@ -105,7 +101,7 @@ public class HelloView2 implements Initializable {
         FlowPane pane;
         ImageView img;
         String style = "-fx-hgap: 20px; -fx-alignment: center; -fx-width: 100%;";
-        img =new ImageView(new Image(HelloApplication.class.getResource("icones/for.png").toExternalForm()));
+        img =new ImageView(new Image(Main.class.getResource("icones/for.png").toExternalForm()));
         forSlider = buildSlider(combattant.getForce(), combattant.getRole().getForce(), player.getCreditECTS());
         forSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setForce(combattant.getForce() + newValue.intValue() - oldValue.intValue());
@@ -115,7 +111,7 @@ public class HelloView2 implements Initializable {
         pane.setStyle(style);
         customBox.getChildren().add(pane);
 
-        img =new ImageView(new Image(HelloApplication.class.getResource("icones/dex.png").toExternalForm()));
+        img =new ImageView(new Image(Main.class.getResource("icones/dex.png").toExternalForm()));
         dexSlider = buildSlider(combattant.getDexterite(), combattant.getRole().getDexterite(), player.getCreditECTS());
         dexSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setDexterite(combattant.getDexterite() + newValue.intValue() - oldValue.intValue());
@@ -125,7 +121,7 @@ public class HelloView2 implements Initializable {
         pane.setStyle(style);
         customBox.getChildren().add(pane);
 
-        img =new ImageView(new Image(HelloApplication.class.getResource("icones/ini.png").toExternalForm()));
+        img =new ImageView(new Image(Main.class.getResource("icones/ini.png").toExternalForm()));
         iniSlider = buildSlider(combattant.getInitiative(), combattant.getRole().getInitiative(), player.getCreditECTS());
         iniSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setInitiative(combattant.getInitiative() + newValue.intValue() - oldValue.intValue());
@@ -135,7 +131,7 @@ public class HelloView2 implements Initializable {
         pane.setStyle(style);
         customBox.getChildren().add(pane);
 
-        img =new ImageView(new Image(HelloApplication.class.getResource("icones/cons.png").toExternalForm()));
+        img =new ImageView(new Image(Main.class.getResource("icones/cons.png").toExternalForm()));
         consSlider = buildSlider(combattant.getConstitution(), combattant.getRole().getConstitution(), player.getCreditECTS());
         consSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setConstitution(combattant.getConstitution() + newValue.intValue() - oldValue.intValue());
@@ -145,7 +141,7 @@ public class HelloView2 implements Initializable {
         pane.setStyle(style);
         customBox.getChildren().add(pane);
 
-        img =new ImageView(new Image(HelloApplication.class.getResource("icones/res.png").toExternalForm()));
+        img =new ImageView(new Image(Main.class.getResource("icones/res.png").toExternalForm()));
         resSlider = buildSlider(combattant.getResistance(), combattant.getRole().getResistance(), player.getCreditECTS());
         resSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             combattant.setResistance(combattant.getResistance() + newValue.intValue() - oldValue.intValue());
@@ -254,9 +250,9 @@ public class HelloView2 implements Initializable {
         } else if (combattant.getStrategie().equals("Aleatoire")) {
             strategie = "random";
         }
-        Image img = new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
+        Image img = new Image(Main.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
         ImageView imgView = new ImageView(img);
-        imgView.setFitHeight(70);
+        imgView.setFitHeight(80);
         imgView.setFitWidth(45);
 
         box.getChildren().addAll(imgView, vbox1, vbox2);
@@ -264,7 +260,7 @@ public class HelloView2 implements Initializable {
         int[] values = combattant.getStats();
         for (int i = 0; i < 6; i++) {
             HBox hbox = new HBox();
-            hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
+            hbox.getChildren().add(new ImageView(new Image(Main.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
             hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
             hbox.getStyleClass().add("iconesRow");
             VBox vbox = (VBox) box.getChildren().get((i / 3) + 1);

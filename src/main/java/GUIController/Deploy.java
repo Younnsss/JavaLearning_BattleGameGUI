@@ -1,4 +1,4 @@
-package com.example.javalearningbattlegame;
+package GUIController;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import models.Combattant;
 
 import java.net.URL;
@@ -20,8 +19,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class Deploy implements Initializable {
-    private List<Combattant> combattantsP1 = HelloApplication.game.getPlayers()[0].getCombattant();
-    private List<Combattant> combattantsP2 = HelloApplication.game.getPlayers()[1].getCombattant();
+    private List<Combattant> combattantsP1 = Main.game.getPlayers()[0].getCombattant();
+    private List<Combattant> combattantsP2 = Main.game.getPlayers()[1].getCombattant();
     @FXML
     private Label error;
     @FXML
@@ -45,8 +44,8 @@ public class Deploy implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         error.setText("");
-        title.setText(HelloApplication.game.getPlayers()[1].getPseudo());
-        img.setImage(new Image(HelloApplication.class.getResource("soldat.png").toExternalForm()));
+        title.setText(Main.game.getPlayers()[1].getPseudo());
+        img.setImage(new Image(Main.class.getResource("soldat.png").toExternalForm()));
         setup(combattantsP2);
     }
 
@@ -74,9 +73,9 @@ public class Deploy implements Initializable {
                 combZone.add(combFrom.get(Integer.parseInt(pane.getChildren().get(i).getId())));
             }
             if(combattantsP2.size() == 0) {
-                HelloApplication.game.getZones()[j].setCombattantP1(combZone);
+                Main.game.getZones()[j].setCombattantP1(combZone);
             } else {
-                HelloApplication.game.getZones()[j].setCombattantP2(combZone);
+                Main.game.getZones()[j].setCombattantP2(combZone);
             }
         }
         List<Combattant> combZone = new ArrayList<Combattant>();
@@ -85,10 +84,10 @@ public class Deploy implements Initializable {
             combZone.add(combFrom.get(Integer.parseInt(pane.getChildren().get(i).getId())));
         }
         if(combattantsP2.size() == 0) {
-            HelloApplication.game.getPlayers()[0].setReserviste(combZone);
+            Main.game.getPlayers()[0].setReserviste(combZone);
             this.combattantsP1.clear();
         } else {
-            HelloApplication.game.getPlayers()[1].setReserviste(combZone);
+            Main.game.getPlayers()[1].setReserviste(combZone);
             this.combattantsP2.clear();
         }
 
@@ -99,10 +98,10 @@ public class Deploy implements Initializable {
             deployComb();
             if (combattantsP1.size() != 0 || combattantsP2.size() != 0) {
                 setup(combattantsP1);
-                title.setText(HelloApplication.game.getPlayers()[0].getPseudo());
-                img.setImage(new Image(HelloApplication.class.getResource("captain.png").toExternalForm()));
+                title.setText(Main.game.getPlayers()[0].getPseudo());
+                img.setImage(new Image(Main.class.getResource("captain.png").toExternalForm()));
             } else {
-                HelloApplication.setScene("battle.fxml");
+                Main.setScene("truce.fxml");
             }
             System.out.println("ok");
         }
@@ -113,7 +112,7 @@ public class Deploy implements Initializable {
         for (int i = 0; i < zones.length; i++) {
             FlowPane pane = (FlowPane) zones[i].getContent();
             if (pane.getChildren().size() < 1) {
-                error.setText("Veuillez placer au minimum un combatant dans chaque Zone");
+                error.setText("Veuillez placer au minimum un combattant dans chaque Zone");
                 return false;
             }
         }
@@ -206,7 +205,7 @@ public class Deploy implements Initializable {
         } else if (combattant.getStrategie().equals("Aleatoire")) {
             strategie = "random";
         }
-        Image img = new Image(HelloApplication.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
+        Image img = new Image(Main.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(70);
         imgView.setFitWidth(45);
@@ -216,7 +215,7 @@ public class Deploy implements Initializable {
         int[] values = combattant.getStats();
         for (int i = 0; i < 6; i++) {
             HBox hbox = new HBox();
-            hbox.getChildren().add(new ImageView(new Image(HelloApplication.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
+            hbox.getChildren().add(new ImageView(new Image(Main.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
             hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
             hbox.getStyleClass().add("iconesRow");
             VBox vbox = (VBox) source.getChildren().get((i / 3) + 1);

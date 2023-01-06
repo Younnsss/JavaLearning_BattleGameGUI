@@ -3,23 +3,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javalearningbattlegame.Battle">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController.Deploy">
    <children>
-      <Button layoutX="361.0" layoutY="157.0" mnemonicParsing="false" onAction="#next" text="Valider">
+      <Button layoutX="487.0" layoutY="137.0" mnemonicParsing="false" onAction="#next" text="Valider">
          <font>
             <Font size="16.0" />
-         </font>
-      </Button>
-      <ScrollPane fx:id="reserve" layoutX="57.0" layoutY="176.0" maxWidth="1.7976931348623157E308" prefHeight="490.0" prefWidth="196.0" style="-fx-border-color: #C9ADA7;">
+         </font></Button>
+      <ScrollPane fx:id="reserve" layoutX="57.0" layoutY="192.0" maxWidth="1.7976931348623157E308" prefHeight="474.0" prefWidth="204.0" style="-fx-border-color: #C9ADA7;">
          <content>
-            <FlowPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="484.0" prefWidth="191.0" style="-fx-background-color: #b2967d; -fx-max-width: 225; -fx-orientation: HORIZONTAL; -fx-padding: 10; -fx-hgap: 10;" />
+            <FlowPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="468.0" prefWidth="199.0" style="-fx-background-color: #b2967d; -fx-max-width: 225; -fx-orientation: HORIZONTAL; -fx-padding: 10; -fx-vgap: 10;" />
          </content>
       </ScrollPane>
       <ScrollPane fx:id="quartier" layoutX="348.0" layoutY="517.0" maxWidth="1.7976931348623157E308" prefHeight="136.0" prefWidth="377.0" style="-fx-border-color: #C9ADA7;">
@@ -47,7 +44,7 @@
             <FlowPane maxHeight="149.0" maxWidth="1.7976931348623157E308" prefHeight="149.0" prefWidth="372.0" style="-fx-background-color: #e6beae; -fx-max-height: 130; -fx-orientation: VERTICAL; -fx-padding: 10; -fx-hgap: 10;" />
          </content>
       </ScrollPane>
-      <FlowPane fx:id="bde" layoutX="383.0" layoutY="263.0" prefHeight="39.0" prefWidth="315.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d5bdaf;">
+      <FlowPane layoutX="383.0" layoutY="263.0" prefHeight="39.0" prefWidth="315.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d5bdaf;">
          <children>
             <Label prefHeight="32.0" prefWidth="303.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Bureau des Etudiants" textFill="WHITE">
                <font>
@@ -56,7 +53,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane fx:id="hs" layoutX="849.0" layoutY="262.0" prefHeight="39.0" prefWidth="203.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e3d5ca;">
+      <FlowPane layoutX="849.0" layoutY="262.0" prefHeight="39.0" prefWidth="203.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e3d5ca;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Halle Sportive" textFill="WHITE">
                <font>
@@ -65,7 +62,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane fx:id="bib" layoutX="864.0" layoutY="47.0" prefHeight="39.0" prefWidth="187.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e6beae;">
+      <FlowPane layoutX="864.0" layoutY="47.0" prefHeight="39.0" prefWidth="187.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #e6beae;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Bibliothèque" textFill="WHITE">
                <font>
@@ -74,7 +71,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane layoutX="91.0" layoutY="126.0" prefHeight="39.0" prefWidth="123.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #b2967d;">
+      <FlowPane layoutX="89.0" layoutY="145.0" prefHeight="39.0" prefWidth="123.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #b2967d;">
          <children>
             <Label prefHeight="32.0" prefWidth="126.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Réserve" textFill="WHITE">
                <font>
@@ -83,7 +80,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane fx:id="qa" layoutX="375.0" layoutY="470.0" prefHeight="39.0" prefWidth="321.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #C9ADA7;">
+      <FlowPane layoutX="375.0" layoutY="470.0" prefHeight="39.0" prefWidth="321.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #C9ADA7;">
          <children>
             <Label prefHeight="32.0" prefWidth="314.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Quartier administratif" textFill="WHITE">
                <font>
@@ -92,7 +89,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane fx:id="hi" layoutX="832.0" layoutY="471.0" prefHeight="39.0" prefWidth="249.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d8b4a0;">
+      <FlowPane layoutX="832.0" layoutY="471.0" prefHeight="39.0" prefWidth="249.0" style="-fx-padding: 3; -fx-background-radius: 10; -fx-background-color: #d8b4a0;">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-family: Verdana;" text="Halle industrielle" textFill="WHITE">
                <font>
@@ -101,47 +98,21 @@
             </Label>
          </children>
       </FlowPane>
-      <Label fx:id="title" layoutX="58.0" layoutY="31.0" style="-fx-font-weight: bold; -fx-font-family: Verdana;" textFill="#22223b">
+      <Label fx:id="title" layoutX="25.0" layoutY="97.0" prefHeight="22.0" prefWidth="147.0" style="-fx-font-weight: bold; -fx-font-family: Verdana; -fx-alignment: center; -fx-font-family: Impact;" text="Joueur" textFill="#22223b">
          <font>
-            <Font size="55.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="error" layoutX="268.0" layoutY="198.0" prefHeight="28.0" prefWidth="263.0" style="-fx-font-weight: bold;" textFill="#ec0808">
+      <Label fx:id="error" layoutX="296.0" layoutY="192.0" prefHeight="28.0" prefWidth="452.0" style="-fx-font-weight: bold; -fx-alignment: center;" textFill="#ec0808">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="97.0" fitWidth="81.0" layoutX="33.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@captain.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="97.0" fitWidth="66.0" layoutX="201.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@soldat.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="score1" layoutX="107.0" layoutY="40.0" style="-fx-font-weight: bold;" text="0">
+      <ImageView fx:id="img" fitHeight="79.0" fitWidth="70.0" layoutX="64.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="172.0" layoutY="11.0" style="-fx-font-weight: bold; -fx-font-family: Impact;" text="Deployment" textFill="#22223b">
          <font>
-            <Font size="36.0" />
+            <Font size="69.0" />
          </font>
       </Label>
-      <Label fx:id="score2" layoutX="157.0" layoutY="40.0" style="-fx-font-weight: bold;" text="0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="img" fitHeight="81.0" fitWidth="70.0" layoutX="418.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="player" layoutX="427.0" layoutY="102.0" style="-fx-font-weight: bold;" text="Joueur">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="514.0" layoutY="21.0" prefHeight="74.0" prefWidth="150.0" style="-fx-font-weight: bold;" text="Truce">
-         <font>
-            <Font size="51.0" />
-         </font>
-      </Label>
-      <VBox fx:id="customBox" layoutX="557.0" layoutY="143.0" prefHeight="56.0" prefWidth="160.0" style="-fx-background-color: #e3d5ca; -fx-padding: 10; -fx-background-radius: 10;" />
    </children>
 </AnchorPane>
