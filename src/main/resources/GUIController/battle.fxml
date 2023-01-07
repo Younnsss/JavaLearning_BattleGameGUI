@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #F2E9E4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController.Battle">
+   <children>
+      <Button layoutX="571.0" layoutY="596.0" mnemonicParsing="false" onAction="#start" text="Battle">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ScrollPane fx:id="zoneP2" layoutX="688.0" layoutY="279.0" maxWidth="1.7976931348623157E308" prefHeight="306.0" prefWidth="406.0" style="-fx-border-color: #C9ADA7;">
+         <content>
+            <FlowPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #e3d5ca; -fx-max-width: 400; -fx-orientation: VERTICAL; -fx-padding: 10; -fx-hgap: 10;" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="zoneP1" layoutX="105.0" layoutY="282.0" maxWidth="1.7976931348623157E308" prefHeight="307.0" prefWidth="406.0" style="-fx-border-color: #C9ADA7;">
+         <content>
+            <FlowPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #d5bdaf; -fx-max-width: 400; -fx-orientation: HORIZONTAL; -fx-padding: 10; -fx-hgap: 10;" />
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="97.0" fitWidth="81.0" layoutX="33.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@captain.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="66.0" layoutX="201.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@soldat.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="score1" layoutX="107.0" layoutY="40.0" style="-fx-font-weight: bold; -fx-font-family: Impact;" text="0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="score2" layoutX="157.0" layoutY="40.0" style="-fx-font-weight: bold; -fx-font-family: Impact;" text="0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img" fitHeight="81.0" fitWidth="70.0" layoutX="418.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="player1" layoutX="220.0" layoutY="186.0" prefHeight="48.0" prefWidth="230.0" style="-fx-font-weight: bold; -fx-font-family: Impact; -fx-alignment: center;" text="Joueur">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="355.0" layoutY="21.0" prefHeight="86.0" prefWidth="495.0" style="-fx-font-weight: bold; -fx-font-family: Impact; -fx-alignment: center;" text="Battle">
+         <font>
+            <Font size="69.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="113.0" fitWidth="66.0" layoutX="142.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@captain.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="66.0" layoutX="991.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@soldat.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="player2" layoutX="739.0" layoutY="185.0" prefHeight="48.0" prefWidth="230.0" style="-fx-font-weight: bold; -fx-font-family: Impact; -fx-alignment: center;" text="Joueur">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Button layoutX="1010.0" layoutY="48.0" mnemonicParsing="false" onAction="#next" text="Suivant">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="title" layoutX="327.0" layoutY="98.0" prefHeight="86.0" prefWidth="557.0" style="-fx-font-weight: bold; -fx-font-family: Impact; -fx-alignment: center;" text="Zone">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

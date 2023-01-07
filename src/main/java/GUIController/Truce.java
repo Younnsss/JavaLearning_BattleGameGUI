@@ -66,36 +66,20 @@ public class Truce implements Initializable {
     private List<Combattant> resDep = new ArrayList<>();
     private List<Combattant> zoneDep = new ArrayList<>();
 
-    private Zone currentZone;
     private HBox lastSelected=null;
 
     private boolean done = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        gameManagement();
         guiSetup();
     }
 
-    public void gameManagement() {
-        int zone = Main.game.chooseZone();
-        Main.game.getZones()[zone].battle();
-        Main.game.getZones()[zone].results();
-        this.currentZone = Main.game.getZones()[zone];
-        done = false;
-        score1.setText(String.valueOf(Main.game.getPlayers()[0].getScore()));
-        score2.setText(String.valueOf(Main.game.getPlayers()[1].getScore()));
-        if (Main.game.getPlayers()[0].getScore() == 3 || Main.game.getPlayers()[1].getScore() == 3) {
-            try {
-                Main.setScene("results.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
 
     public void guiSetup() {
         error.setText("");
+        score1.setText(String.valueOf(Main.game.getPlayers()[0].getScore()));
+        score2.setText(String.valueOf(Main.game.getPlayers()[1].getScore()));
         img.setImage( new Image(Main.class.getResource(done?"soldat.png":"captain.png").toExternalForm()));
         player.setText(Main.game.getPlayers()[done?1:0].getPseudo());
         ScrollPane[] zones = {biblio, bureau, quartier, halleI, halleS};
@@ -226,10 +210,10 @@ public class Truce implements Initializable {
         }
         if (done) {
             Main.game.getPlayers()[1].getReserviste().removeAll(resDep);
-            currentZone.combattantP2.removeAll(zoneDep);
+            Main.game.getZones()[Main.currentZone].combattantP2.removeAll(zoneDep);
         } else {
             Main.game.getPlayers()[0].getReserviste().removeAll(resDep);
-            currentZone.combattantP1.removeAll(zoneDep);
+            Main.game.getZones()[Main.currentZone].combattantP1.removeAll(zoneDep);
         }
     }
 
@@ -246,13 +230,13 @@ public class Truce implements Initializable {
                 zone.getCombattantP1().add(combattant);
             }
         } else {
-            if (zone != currentZone) {
+            if (zone != Main.game.getZones()[Main.currentZone]) {
                 if (done) {
-                    Combattant combattant = currentZone.combattantP2.get(index);
+                    Combattant combattant = Main.game.getZones()[Main.currentZone].combattantP2.get(index);
                     this.zoneDep.add(combattant);
                     zone.getCombattantP2().add(combattant);
                 } else {
-                    Combattant combattant = currentZone.combattantP1.get(index);
+                    Combattant combattant = Main.game.getZones()[Main.currentZone].combattantP1.get(index);
                     this.zoneDep.add(combattant);
                     zone.getCombattantP1().add(combattant);
                 }
@@ -262,15 +246,14 @@ public class Truce implements Initializable {
 
     }
 
-    public void next() {
+    public void next() throws IOException {
         if (validate()) {
             redeploy();
             if (!done) {
                 done = true;
                 guiSetup();
             } else {
-                gameManagement();
-                guiSetup();
+                Main.setScene("battle.fxml");
             }
         }
     }

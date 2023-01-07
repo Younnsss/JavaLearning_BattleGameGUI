@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     public static Partie game = new Partie();
+    public static int currentZone = 0;
     private static Stage stage;
     @Override
     public void start(Stage primaryStage) throws IOException {

@@ -101,7 +101,7 @@ public class Deploy implements Initializable {
                 title.setText(Main.game.getPlayers()[0].getPseudo());
                 img.setImage(new Image(Main.class.getResource("captain.png").toExternalForm()));
             } else {
-                Main.setScene("truce.fxml");
+                Main.setScene("battle.fxml");
             }
             System.out.println("ok");
         }
