@@ -6,40 +6,97 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Zone {
-	
-    private String name;
-    private Boolean isFinish;
-    public List<Combattant> combattantP1 = new ArrayList<Combattant> ();
-    public List<Combattant> combattantP2 = new ArrayList<Combattant> ();
+/**
+ *
+ * @author Younes Boutkrida;
+ * @author André Correia;
+ *
+ * @version final;
+ *
+ * @since 09.2022;
+ *
+ */
 
+public class Zone {
+
+	// Attributs
+	private String name;
+	private Boolean isFinish;
+	public List<Combattant> combattantP1 = new ArrayList<Combattant>();
+	public List<Combattant> combattantP2 = new ArrayList<Combattant>();
 	private Player Pwinner;
 
-    Zone(String n) {
+	/**
+	 *
+	 * @Construtor: Zone;
+	 *
+	 * @Function: Attibui le nom à un joueur;
+	 *
+	 * @ParamètreDentrée: Prend en entrée un nome du combattant;
+	 *
+	 * @Return: rien (void);
+	 *
+	 */
+	Zone(String n) {
 		this.name = n;
 		this.isFinish = false;
 	}
-	public Player getPWinner() { return this.Pwinner; }
-	public void setWinner(Player player) { this.Pwinner=player; }
-	public String getName() { return this.name; }
-	public Boolean getIsFinish() { return this.isFinish; }
 
-    public List<Combattant> getCombattantP1() { return this.combattantP1;}
+	@GetSetMethode
+	public Player getPWinner() {
+		return this.Pwinner;
+	}
 
-    public void setCombattantP1(List<Combattant> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.combattantP1 = value;
-    }
-    
-    public List<Combattant> getCombattantP2() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.combattantP2;
-    }
+	@GetSetMethode
+	public void setWinner(Player player) {
+		this.Pwinner = player;
+	}
 
-    public void setCombattantP2(List<Combattant> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.combattantP2 = value;
-    }
+	@GetSetMethode
+	public String getName() {
+		return this.name;
+	}
+
+	@GetSetMethode
+	public Boolean getIsFinish() {
+		return this.isFinish;
+	}
+
+	@GetSetMethode
+	public List<Combattant> getCombattantP1() {
+		return this.combattantP1;
+	}
+
+	@GetSetMethode
+	public void setCombattantP1(List<Combattant> value) {
+		this.combattantP1 = value;
+	}
+
+	@GetSetMethode
+	public List<Combattant> getCombattantP2() {
+		return this.combattantP2;
+	}
+
+	@GetSetMethode
+	public void setCombattantP2(List<Combattant> value) {
+		this.combattantP2 = value;
+	}
+
+	/**
+	 *
+	 * @Methode: battle;
+	 *
+	 * @Function: Cela consiste faire la phase de Mêlée pour chaqu'un des 5 zones
+	 *            D’un point de vue algorithmique, les étudiants d’un champ de
+	 *            bataille sont stockés dans une liste selon la meilleure
+	 *            initiative. Le premier de la liste commet son action puis repasse
+	 *            à la fin de cette même liste;
+	 *
+	 * @ParamètreDentrée: rien (void);
+	 *
+	 * @Return: rien (void);
+	 *
+	 */
 	public void battle() {
 		System.out.println(this.combattantP1.size());
 		System.out.println(this.combattantP2.size());
@@ -50,10 +107,10 @@ public class Zone {
 		Collections.sort(this.combattantP2);
 		System.out.println();
 		System.out.println();
-		int j1=0,j2=0;
-		while(this.combattantP1.size()>0 && this.combattantP2.size()>0) {
-			j1=0;
-			j2=0;
+		int j1 = 0, j2 = 0;
+		while (this.combattantP1.size() > 0 && this.combattantP2.size() > 0) {
+			j1 = 0;
+			j2 = 0;
 			while (j1 < this.combattantP1.size() && j2 < this.combattantP2.size()) {
 
 				System.out.println();
@@ -63,7 +120,8 @@ public class Zone {
 				System.out.println();
 				if (this.combattantP1.get(j1).getInitiative() > this.combattantP2.get(j2).getInitiative()) {
 					System.out.println("Strategie :" + this.combattantP1.get(j1).strategie);
-					this.combattantP1.get(j1).strategie.action(this.combattantP1.get(j1), this.combattantP1, this.combattantP2);
+					this.combattantP1.get(j1).strategie.action(this.combattantP1.get(j1), this.combattantP1,
+							this.combattantP2);
 					System.out.println();
 					Combattant.affComb(this.combattantP1);
 					System.out.println();
@@ -71,7 +129,8 @@ public class Zone {
 					j1++;
 				} else {
 					System.out.println("Strategie :" + this.combattantP2.get(j2).strategie);
-					this.combattantP2.get(j2).strategie.action(this.combattantP2.get(j2), this.combattantP2, this.combattantP1);
+					this.combattantP2.get(j2).strategie.action(this.combattantP2.get(j2), this.combattantP2,
+							this.combattantP1);
 					System.out.println();
 					Combattant.affComb(this.combattantP1);
 					System.out.println();
@@ -86,7 +145,8 @@ public class Zone {
 				System.out.println();
 				System.out.println();
 				System.out.println("Strategie :" + this.combattantP1.get(j1).strategie);
-				this.combattantP1.get(j1).strategie.action(this.combattantP1.get(j1), this.combattantP1, this.combattantP2);
+				this.combattantP1.get(j1).strategie.action(this.combattantP1.get(j1), this.combattantP1,
+						this.combattantP2);
 				System.out.println();
 				Combattant.affComb(this.combattantP1);
 				System.out.println();
@@ -100,7 +160,8 @@ public class Zone {
 				System.out.println();
 				System.out.println();
 				System.out.println("Strategie :" + this.combattantP2.get(j2).strategie);
-				this.combattantP2.get(j2).strategie.action(this.combattantP2.get(j2), this.combattantP2, this.combattantP1);
+				this.combattantP2.get(j2).strategie.action(this.combattantP2.get(j2), this.combattantP2,
+						this.combattantP1);
 				System.out.println();
 				Combattant.affComb(this.combattantP1);
 				System.out.println();
@@ -111,6 +172,17 @@ public class Zone {
 		this.isFinish = true;
 	}
 
+	/**
+	 *
+	 * @Methode: Results;
+	 *
+	 * @Function: Définit le vainqueur de la bataille;
+	 *
+	 * @ParamètreDentrée: rien (void);
+	 *
+	 * @Return: rien (void);
+	 *
+	 */
 	public void results(){
 		if(this.combattantP1.size() == 0) {
 			this.setWinner(Main.game.getPlayers()[1]);

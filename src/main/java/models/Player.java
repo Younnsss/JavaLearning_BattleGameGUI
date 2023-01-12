@@ -1,67 +1,111 @@
 package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Younes Boutkrida;
+ * @author André Correia;
+ *
+ * @version final;
+ *
+ * @since 09.2022;
+ *
+ */
+
 public class Player {
-	
-    private String pseudo,filiere;
+
+    // Attributs
+    private String pseudo;
+    private String filiere;
     private int creditECTS;
     private boolean winner;
     private int score;
-    private List<Combattant> combattant = new ArrayList<Combattant> ();
-    public List<Combattant> reserviste = new ArrayList<Combattant> ();
+    private List<Combattant> combattant = new ArrayList<Combattant>();
+    public List<Combattant> reserviste = new ArrayList<Combattant>();
 
+    /**
+     *
+     * @Construtor: Player;
+     *
+     * @Function: Créer le joueur et attibui à lui un nom et une filière;
+     *
+     * @ParamètreDentrée: Prend en entrée son pseudo et sa filière;
+     *
+     * @Return: Attribuition de pseudo, de filière et des 400 credits ECTS;
+     *
+     */
+    Player(String pseudo, String filiere) {
+        this.pseudo = pseudo;
+        this.setFiliere(filiere);
+        this.creditECTS = 400;
+        this.setWinner(false);
+    }
+
+    @GetSetMethode
     public int getScore() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         return this.score;
     }
 
+    @GetSetMethode
     public void updateScore() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         this.score++;
     }
-    
-    Player(String pseudo, String filiere){
-    	this.pseudo = pseudo;
-    	this.filiere = filiere;
-    	this.creditECTS = 400;
-        this.winner = false;
-    }
 
+    @GetSetMethode
     public String getPseudo() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         return this.pseudo;
     }
 
+    @GetSetMethode
     public int getCreditECTS() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         return this.creditECTS;
     }
 
+    @GetSetMethode
     public void setCreditECTS(int value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
         this.creditECTS = value;
     }
 
+    @GetSetMethode
     public List<Combattant> getCombattant() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         return this.combattant;
     }
 
+    @GetSetMethode
     void setCombattant(List<Combattant> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
         this.combattant = value;
     }
 
+    @GetSetMethode
     public List<Combattant> getReserviste() {
-        // Automatically generated method. Please delete this comment before entering specific code.
         return this.reserviste;
     }
 
+    @GetSetMethode
     public void setReserviste(List<Combattant> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
         this.reserviste = value;
     }
-    
+
+    @GetSetMethode
+    public String getFiliere() {
+        return filiere;
+    }
+
+    @GetSetMethode
+    public void setFiliere(String filiere) {
+        this.filiere = filiere;
+    }
+
+    @GetSetMethode
+    public boolean isWinner() {
+        return winner;
+    }
+
+    @GetSetMethode
+    public void setWinner(boolean winner) {
+        this.winner = winner;
+    }
 
 }

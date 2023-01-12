@@ -2,36 +2,53 @@ package models;
 
 import java.util.*;
 
+/**
+ *
+ * @author Younes Boutkrida;
+ * @author André Correia;
+ *
+ * @version final;
+ *
+ * @since 09.2022;
+ *
+ */
 
 public class Partie {
 
+    // Attributs
     private Player[] players;
     private Zone[] zones = new Zone[5];
+    private HashMap<Player, Integer> results;
 
-    private HashMap<Player,Integer> results;
-
-
-    public int getZoneIndex(Zone zone){
-        for(int i = 0; i < zones.length; i++){
-            if(zones[i] == zone){
+    public int getZoneIndex(Zone zone) {
+        for (int i = 0; i < zones.length; i++) {
+            if (zones[i] == zone) {
                 return i;
             }
         }
         return -1;
     }
 
+    @GetSetMethode
     public Zone[] getZones() {
         return this.zones;
     }
 
+    @GetSetMethode
     public Player[] getPlayers() {
         return this.players;
     }
 
-    /*
-     * This function initialize the fives zones found in the game.
-     * The function takes as an input a list of names of the different zones.
-     * this function return nothing.
+    /**
+     *
+     * @Methode: initZones;
+     *
+     * @Function: Cette fonction initialise les cinq zones présentes dans le jeu;
+     *
+     * @ParamètreDentrée: Liste des noms des différentes zones;
+     *
+     * @Return: rien (void);
+     *
      */
     public void initZones(String[] n) {
         for (int i = 0; i < 5; i++) {
@@ -39,19 +56,33 @@ public class Partie {
         }
     }
 
-
-
-    /*
-     * This function allow the game to initialize the players of the game.
-     * To do so, each player must give as an input in the console their name and their speciality.
-     * The functions takes nothing as an input.
-     * This function does not return anything.
+    /**
+     *
+     * @Methode: initPlayers;
+     *
+     * @Function: Cette fonction permet au jeu d'initialiser les joueurs du jeu;
+     *
+     * @ParamètreDentrée: Entrer dans la console leur nom et leur spécialité;
+     *
+     * @Return: rien (void);
+     *
      */
     public void initPlayers(String pseudoP1, String filiereP1, String pseudoP2, String filiereP2) {
-        this.players = new Player[]{new Player(pseudoP1, filiereP1), new Player(pseudoP2, filiereP2)};
+        this.players = new Player[] { new Player(pseudoP1, filiereP1), new Player(pseudoP2, filiereP2) };
     }
 
-
+    /**
+     *
+     * @Methode: initCombs;
+     *
+     * @Function: Cette fonction permet au jeu de trier ses combattant comme
+     *            maitreGobi, elite ou basique et les atribuir les status;
+     *
+     * @ParamètreDentrée: rien (void);
+     *
+     * @Return: rien (void);
+     *
+     */
     public void initCombs() {
         for (Player p : players) {
             List<Combattant> combattants = new ArrayList<Combattant>();
@@ -65,21 +96,23 @@ public class Partie {
                     r = Role.basique;
                 }
                 int[] stats = r.getStats();
-                combattants.add(new Combattant(stats[0],
-                        stats[1], stats[2],
-                        stats[3], stats[4],
-                        "r", r));
+                combattants.add(new Combattant(stats[0], stats[1], stats[2], stats[3], stats[4], "r", r));
             }
             p.setCombattant(combattants);
         }
     }
 
-
-    /*
-     * This function allow to each player to generate their fighters randomly.
-     * Each fighter will have random statistics.
-     * The function takes as an input, the number of the combattant and the player associated.
-     * This function returns a list of 20 combattants.
+    /**
+     *
+     * @Methode: initAutoComb;
+     *
+     * @Function: Cette fonction permet à chaque joueur de générer aléatoirement ses
+     *            combattants. Chaque combattant aura des statistiques aléatoires;
+     *
+     * @ParamètreDentrée: Le numéro du combattant et du joueur associé;
+     *
+     * @Return: Une liste de 20 combattants;
+     *
      */
     public void initAutoComb(int nbPlayer) {
         List<Combattant> combattants = new ArrayList<Combattant>();
@@ -91,20 +124,37 @@ public class Partie {
         this.players[nbPlayer].setCombattant(combattants);
     }
 
-    /*
-     * This function allows the user to pick a random zone of the game.
-     * The zone must be a zone that has for the moment no winner.
-     * The function takes nothing as an input.
-     * This function return the index of the zone.
+    /**
+     *
+     * @Methode: chooseZone;
+     *
+     * @Function: Cette fonction permet à l'utilisateur de choisir une zone
+     *            aléatoire du jeu. La zone doit être une zone qui n'a pour
+     *            l'instant aucun vainqueur;
+     *
+     *
+     *
+     * @ParamètreDentrée: rien (void);
+     *
+     * @Return: L'indice de la zone;
+     *
      */
     public int chooseZone() {
         int resp;
         do {
             resp = (int) (Math.random() * 5);
-        } while (this.zones[resp].getIsFinish() ==true);
+        } while (this.zones[resp].getIsFinish() == true);
         return resp;
     }
 
+    @GetSetMethode
+    public HashMap<Player, Integer> getResults() {
+        return results;
+    }
+
+    @GetSetMethode
+    public void setResults(HashMap<Player, Integer> results) {
+        this.results = results;
+    }
+
 }
-
-

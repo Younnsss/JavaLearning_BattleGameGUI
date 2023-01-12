@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+    <option name="CUSTOM_SCOPE_NAME" value="Selected directory" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : style &amp; tree structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUIController/Battle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/battle.fxml" afterDir="false" />
+    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : Battle screen">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/GetSetMethode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUIController/Deploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Deploy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUIController/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUIController/Truce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/Truce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUIController/SettingUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/SettingUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Aleatoire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Aleatoire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Combattant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Combattant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Defensive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Defensive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Offensive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Offensive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Strategie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Strategie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Zone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GUIController/battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/battle.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +63,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/boutk/Desktop/Projets/JavaWorkspace/JavaLearning-BattleGame/src/main/resources/GUIController",
+    "last_opened_file_path": "C:/Users/boutk/Desktop/Projets/JavaWorkspace/JavaLearning-BattleGame/src/main/java/models",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\java\models" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\GUIController" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -137,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673044556114</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat : Battle screen">
+      <created>1673078546343</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673078546343</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -147,7 +169,8 @@
     <MESSAGE value="feat : Game Style" />
     <MESSAGE value="feat : File directory" />
     <MESSAGE value="feat : style &amp; tree structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : style &amp; tree structure" />
+    <MESSAGE value="feat : Battle screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : Battle screen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

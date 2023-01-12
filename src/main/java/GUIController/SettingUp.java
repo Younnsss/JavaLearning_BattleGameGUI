@@ -234,38 +234,7 @@ public class SettingUp implements Initializable {
 
 
     public HBox buildComb(Combattant combattant, Player player) {
-        HBox box = new HBox();
-        box.setMinWidth(165);
-        box.getStyleClass().add("combattant");
-
-        VBox vbox1 = new VBox();
-        VBox vbox2 = new VBox();
-        vbox1.getStyleClass().add("iconesCol");
-        vbox2.getStyleClass().add("iconesCol");
-        String strategie = "";
-        if (combattant.getStrategie().equals("Offensive")) {
-            strategie = "attaque";
-        } else if (combattant.getStrategie().equals("Defensive")) {
-            strategie = "defense";
-        } else if (combattant.getStrategie().equals("Aleatoire")) {
-            strategie = "random";
-        }
-        Image img = new Image(Main.class.getResource(combattant.getRole() + "/" + strategie + ".png").toExternalForm());
-        ImageView imgView = new ImageView(img);
-        imgView.setFitHeight(80);
-        imgView.setFitWidth(45);
-
-        box.getChildren().addAll(imgView, vbox1, vbox2);
-        String[] icones = {"dex", "for", "res", "cons", "ini", "cred"};
-        int[] values = combattant.getStats();
-        for (int i = 0; i < 6; i++) {
-            HBox hbox = new HBox();
-            hbox.getChildren().add(new ImageView(new Image(Main.class.getResource("icones/" + icones[i] + ".png").toExternalForm())));
-            hbox.getChildren().add(new Label(" " + String.valueOf(values[i])));
-            hbox.getStyleClass().add("iconesRow");
-            VBox vbox = (VBox) box.getChildren().get((i / 3) + 1);
-            vbox.getChildren().add(hbox);
-        }
+        HBox box = UtilsGUI.buildNonDraggable(combattant);
         box.setOnMouseClicked((MouseEvent event) -> {
             buildCustomBox(combattant, box, player);
             if(lastSelected != null){

@@ -18,7 +18,7 @@
       </Button>
       <ScrollPane fx:id="zoneP2" layoutX="688.0" layoutY="279.0" maxWidth="1.7976931348623157E308" prefHeight="306.0" prefWidth="406.0" style="-fx-border-color: #C9ADA7;">
          <content>
-            <FlowPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #e3d5ca; -fx-max-width: 400; -fx-orientation: VERTICAL; -fx-padding: 10; -fx-hgap: 10;" />
+            <FlowPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #e3d5ca; -fx-max-width: 400; -fx-orientation: HORIZONTAL; -fx-padding: 10; -fx-hgap: 10;" />
          </content>
       </ScrollPane>
       <ScrollPane fx:id="zoneP1" layoutX="105.0" layoutY="282.0" maxWidth="1.7976931348623157E308" prefHeight="307.0" prefWidth="406.0" style="-fx-border-color: #C9ADA7;">
