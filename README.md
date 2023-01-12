@@ -60,7 +60,7 @@ Une zone est choisie aléatoirement et le combat fait rage jusqu'à ce qu'un pro
 - Attaquer frontalement. Sur sa zone de combat, l’étudiant lance son gobi à l’ennemi qui a le moins de crédits ECTS. Les dégats sont obtenu à l'issue d'un calcul mathématique réalisé en fonction des compétences des combattants
 - Une stratégie aléatoire consiste pour un étudiant à évoluer d’une stratégie à une autre demanière aléatoire.
 
-![App Screenshot](src/main/resources/GUIController/readme/battleCapture.JPG)
+![App Screenshot](src/main/resources/GUIController/readme/battle.JPG)
 
 
 
