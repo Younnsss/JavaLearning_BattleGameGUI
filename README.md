@@ -14,7 +14,7 @@ BattleGame se joue à deux joueurs. Chaque
 joueur représente un des sept programmes de l’UTT (ISI, RT, A2I, GI, GM, MTE, MM) et possède un effectif de 20
 étudiants. A l’aide de son équipe, chaque joueur devra essayer de contrôler une majorité de zones d’influence.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/login.JPG)
 
 ## Initialisation
 
@@ -35,7 +35,7 @@ Les 20 protagonistes de chaque équipe sont hiérarchisés de la manière suivan
 En début de partie, chaque joueur possède 400 points à distribuer à chacun de ses 20 combattants en les affectant
 aux caractéristiques Force, Dextérité, Résistance, Constitution, Initiative. Chaque étudiant aura également une stratégie de combat.
  
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/settingup.gif)
 
 ## Déploiement
 
@@ -50,7 +50,7 @@ Ces zones d’influence sont :
 
 
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/deploy.gif)
 
 ## Battle
 
@@ -60,7 +60,7 @@ Une zone est choisie aléatoirement et le combat fait rage jusqu'à ce qu'un pro
 - Attaquer frontalement. Sur sa zone de combat, l’étudiant lance son gobi à l’ennemi qui a le moins de crédits ECTS. Les dégats sont obtenu à l'issue d'un calcul mathématique réalisé en fonction des compétences des combattants
 - Une stratégie aléatoire consiste pour un étudiant à évoluer d’une stratégie à une autre demanière aléatoire.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/battleCapture.JPG)
 
 
 
@@ -71,10 +71,10 @@ A cette étape les 2 joueurs peuvent faire les actions suivantes de manière cac
 - Si un joueur contrôle déjà une zone de combat, il peut redéployer ses combattant valides qui se trouvent sur cette zone vers d’autres zones de combats. Mais, un combattant doit rester sur la zone contrôlée pour maintenir l’ordre et l’influence du programme. 
 - On ne peut pas redéployer de combattants d’une zone dont le combat n’est pas fini.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/redeploy.gif)
 
 ## Fin de la partie
 
 Les Battles et les trêves se répètent jusqu’à ce qu’un joueur contrôle au moins 3 zones et est donc déclaré vainqueur.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/main/resources/GUIController/readme/end.JPG)

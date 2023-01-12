@@ -8,23 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="feat : Battle screen">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/GetSetMethode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="264217fb-17a2-467c-b928-3e6365e2456c" name="Changes" comment="doc &amp; readme">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/readme/deploy.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/readme/end.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/readme/login.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/readme/redeploy.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GUIController/readme/settingup.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUIController/SettingUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUIController/SettingUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Aleatoire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Aleatoire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Combattant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Combattant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Defensive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Defensive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Offensive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Offensive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Partie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Strategie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Strategie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Zone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/GUIController/battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GUIController/battle.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,26 +49,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/boutk/Desktop/Projets/JavaWorkspace/JavaLearning-BattleGame/src/main/java/models",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/boutk/Desktop/Projets/JavaWorkspace/JavaLearning-BattleGame/src/main/java/models&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\java\models" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\GUIController" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\GUIController\readme" />
+      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\GUIController" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\maitreGobi" />
       <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\elite" />
-      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\basique" />
-      <recent name="C:\Users\boutk\Desktop\Projets\JavaWorkspace\JavaLearning-BattleGame\src\main\resources\com\example\javalearningbattlegame\icones" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="GUIController" />
@@ -159,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673078546343</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="doc &amp; readme">
+      <created>1673547972231</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673547972231</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,7 +168,8 @@
     <MESSAGE value="feat : File directory" />
     <MESSAGE value="feat : style &amp; tree structure" />
     <MESSAGE value="feat : Battle screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : Battle screen" />
+    <MESSAGE value="doc &amp; readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc &amp; readme" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
